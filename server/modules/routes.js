@@ -1,5 +1,5 @@
-const path = require('path');
-const ROUTES = require('../routes');
+const path = require("path");
+const ROUTES = require("../routes");
 
 // this module is supposed to be close for modification
 // please dont modify, route modules is totally reliant on this module
@@ -9,5 +9,5 @@ module.exports = (express, app) => {
   for (const key in ROUTES) {
     app.use(ROUTES[key].url, ROUTES[key].route);
   }
-  app.use(express.static(path.resolve('public')));
+  app.use(express.static(path.resolve("public")));
 };

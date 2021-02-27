@@ -3,25 +3,38 @@
 
 <head>
   <%- include('partials/common-meta.ejs') -%>
-  <!-- This is use for Date Picker -->
   <link rel="stylesheet" href="/css/flatpickr.css">
   <link rel="stylesheet" href="/css/material_green.css">
-  <!-- *** -->
-  <link rel="stylesheet" href="/css/root.css">
-  <title>TradeMark Generator</title>
+  <link rel="stylesheet" href="/css/ruler.css">
+  <link rel="stylesheet" href="/css/component.css">
+  <link rel="shortcut icon" href="/media/favicon.ico" type="image/x-icon">
+  <title>TradeMark Generator | Chinesepod</title>
 </head>
 
 <body>
-
   <main class="root">
     <div class="wrapper" id="questions-holder">
     </div>
   </main>
-  <!-- This is use for Date Picker -->
+  <div id="network-indicator">
+      <div class="progress-bar">
+        <div id="progress-indicator"></div>
+      </div>
+    <div class="media-spinner">
+      <img src="/media/rubix_cube.gif" alt="loading indicator"/>
+    </div>
+  </div>
   <script src="/js/flatpickr.js"></script>
-  <!-- *** -->
+  <script src="/js/ruler.js"></script>
+  <script src="/js/script.js"></script>
   <script src="/js/component.js"></script>
   <script src="/js/uilogic.js"></script>
+  <script src="/js/effects.js"></script>
+  
+  <!-- <script>
+    const editor = new Editor()
+    editor.render()
+  </script> -->
 </body>
 
 </html>

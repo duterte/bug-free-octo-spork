@@ -1,12 +1,16 @@
-@import 'normalize';
-@import 'config';
+@import "normalize";
+@import "config";
+
+html {
+  scroll-behavior: smooth;
+}
 
 body,
 body * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 body {
@@ -19,7 +23,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Montserrat', 'Nunito', sans-serif;
+  font-family: "Montserrat", "Nunito", sans-serif;
 }
 
 a {
@@ -33,5 +37,60 @@ a {
 }
 
 main {
-  margin-top: 3em;
+  padding: 50px 0;
+}
+
+.page-btn {
+  padding: 12px 36px;
+  color: #ffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 18px;
+  letter-spacing: 2px;
+  border-radius: 5px;
+  font-weight: bolder;
+  cursor: pointer;
+  user-select: none;
+}
+
+.page-btn.ok {
+  background: linear-gradient(90deg, #0162c8, #55e7cf);
+}
+
+.page-btn.submit {
+  background: linear-gradient(90deg, #755bea, #ff72c0);
+}
+
+.submit-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ripple-btn {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+span.ripple {
+  position: absolute;
+  background-color: #ffff;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  border-radius: 50%;
+  animation: ripple 0.5s linear infinite;
+}
+
+@keyframes ripple {
+  0% {
+    width: 0px;
+    height: 0px;
+    opacity: 0.5;
+  }
+  100% {
+    width: 500px;
+    height: 500px;
+    opacity: 0;
+  }
 }

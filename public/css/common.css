@@ -341,13 +341,17 @@ template {
   display: none;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body,
 body * {
   margin: 0;
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
 body {
@@ -360,7 +364,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'Montserrat', 'Nunito', sans-serif;
+  font-family: "Montserrat", "Nunito", sans-serif;
 }
 
 a {
@@ -374,5 +378,86 @@ a {
 }
 
 main {
-  margin-top: 3em;
+  padding: 50px 0;
+}
+
+.page-btn {
+  padding: 12px 36px;
+  color: #ffff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 18px;
+  letter-spacing: 2px;
+  border-radius: 5px;
+  font-weight: bolder;
+  cursor: pointer;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.page-btn.ok {
+  background: -webkit-gradient(linear, left top, right top, from(#0162c8), to(#55e7cf));
+  background: linear-gradient(90deg, #0162c8, #55e7cf);
+}
+
+.page-btn.submit {
+  background: -webkit-gradient(linear, left top, right top, from(#755bea), to(#ff72c0));
+  background: linear-gradient(90deg, #755bea, #ff72c0);
+}
+
+.submit-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.ripple-btn {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+span.ripple {
+  position: absolute;
+  background-color: #ffff;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  pointer-events: none;
+  border-radius: 50%;
+  -webkit-animation: ripple 0.5s linear infinite;
+          animation: ripple 0.5s linear infinite;
+}
+
+@-webkit-keyframes ripple {
+  0% {
+    width: 0px;
+    height: 0px;
+    opacity: 0.5;
+  }
+  100% {
+    width: 500px;
+    height: 500px;
+    opacity: 0;
+  }
+}
+
+@keyframes ripple {
+  0% {
+    width: 0px;
+    height: 0px;
+    opacity: 0.5;
+  }
+  100% {
+    width: 500px;
+    height: 500px;
+    opacity: 0;
+  }
 }

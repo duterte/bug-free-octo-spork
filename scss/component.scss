@@ -37,10 +37,6 @@
   background-color: rgba(0, 0, 255, 0.219);
 }
 
-// .input {
-//   width: 100%;
-// }
-
 input[type="checkbox"] {
   margin-right: 1em;
 }
@@ -48,27 +44,6 @@ input[type="checkbox"] {
 label {
   user-select: none;
   display: block;
-}
-
-// .prev,
-.next {
-  // padding: 8px 16px;
-  padding: 8px 26px;
-  border: 1px solid black;
-  font-weight: bolder;
-  cursor: pointer;
-}
-
-// .prev {
-//   border-radius: 5px 0 0 5px;
-// }
-
-// .next {
-//   border-radius: 0 5px 5px 0;
-// }
-
-.next {
-  border-radius: 5px;
 }
 
 .box-buttons {
@@ -117,4 +92,68 @@ label {
 .table > .col-3 {
   border-right: 0.01px solid gray;
   border-bottom: 0.01px solid gray;
+}
+
+#network-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  display: none;
+
+  .media-spinner {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  img {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+  }
+  #progress-indicator {
+    width: 0%;
+    height: 2px;
+    background-color: #157ce8;
+    transition: width 1s ease-out;
+  }
+}
+
+.text-editor {
+  .paper {
+    width: 816px;
+    height: 1056px;
+    margin: 0 auto;
+    padding: 96px;
+    background-color: white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .editor {
+    border: 1px solid black;
+  }
+  .ql-editor {
+    padding: 0;
+  }
+}
+
+#toolbar {
+  height: 40px;
+  background-color: white;
+}
+
+main.text-editor {
+  background: linear-gradient(90deg, #8ec5fc, #e0c3fc);
+  position: relative;
 }

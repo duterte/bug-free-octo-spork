@@ -1,6 +1,6 @@
 (function () {
-  const answers = {};
   const UI_HANDLER = {};
+  const { Question, Submit, answers } = component();
   let renderLevel = [];
 
   const API = [
@@ -207,31 +207,59 @@
     },
   ];
 
-  Component(API[0]).render();
+  // component(API[0]).question.render();
 
-  function updateJson(array) {
+  const q = new Question(API[0]);
+  q.render();
+
+  function updateJson(array, id) {
+    const firstIndex = answers.findIndex((item) => item.id === id);
+    if (firstIndex !== -1) {
+      answers = answers.slice(0, firstIndex);
+      console.log(answers);
+    }
     for (const item of array) {
       const { question, answer } = item;
-      answers[question] = answer;
+      answers.push({ question, answer, groupName: id });
     }
   }
 
+  function smoothScrolling(id) {
+    let element = document.getElementById(id);
+    new Promise((resolve, reject) => {
+      while (!element) {
+        element = document.getElementById(id);
+      }
+      resolve();
+    })
+      .then(() => {
+        element.scrollIntoView();
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   function conditionallyRenderTable(array) {
+    let doesTableRendered = false;
     const multiAgreement = array.find(
       (item) =>
         item.question ===
         "I want to assign more than one trademark within this agreement"
     );
-    if (multiAgreement.answer === "yes") {
+    if (multiAgreement.answer === "Yes") {
       const num = array.find((item) => item.question === "Number of trademarks")
         .answer;
       const object = API.find((item) => item.id === "trademarks");
       object.components.find((item) => item.category === "table").tr = Number(
         num
       );
-      const nextQuestion = Component(object);
+      const nextQuestion = new Question(object);
       nextQuestion.render();
+      smoothScrolling("trademarks");
+      doesTableRendered = true;
     }
+    return doesTableRendered;
   }
 
   function retainedUI(caller) {
@@ -249,8 +277,9 @@
     });
   }
 
-  function findBox(string) {
-    return Component(API.find((item) => item.id === string));
+  function renderBox(string) {
+    new Question(API.find((item) => item.id === string)).render();
+    smoothScrolling(string);
   }
 
   UI_HANDLER.trademark = function (array) {
@@ -260,56 +289,74 @@
       { text: "Registered Trademark", render: "registration" },
     ];
     const render = answers.find((item) => item.text === answer).render;
-    findBox(render).render();
-    updateJson(array);
+    retainedUI("trademark");
+    renderBox(render);
+    updateJson(array, "trademark");
   };
 
   UI_HANDLER.application = function (array) {
-    conditionallyRenderTable(array);
-    findBox("relationship").render();
-    updateJson(array);
+    retainedUI("application");
+    const bool = conditionallyRenderTable(array);
+    if (!bool) {
+      renderBox("relationship");
+    }
+    updateJson(array, "application");
   };
 
   UI_HANDLER.registration = function (array) {
-    conditionallyRenderTable(array);
-    findBox("relationship").render();
-    updateJson(array);
+    retainedUI("registration");
+    const bool = conditionallyRenderTable(array);
+    if (!bool) {
+      renderBox("relationship");
+    }
+    updateJson(array, "registration");
   };
 
   UI_HANDLER.trademarks = function (array) {
-    //
+    retainedUI("trademarks");
+    renderBox("relationship");
+    updateJson(array, "trademarks");
   };
 
   UI_HANDLER.relationship = function (array) {
-    findBox("purchasePrice").render();
-    updateJson(array);
+    retainedUI("relationship");
+    renderBox("purchasePrice");
+    updateJson(array, "relationship");
   };
 
   UI_HANDLER.purchasePrice = function (array) {
-    findBox("paymentModalities").render();
-    updateJson(array);
+    retainedUI("purchasePrice");
+    renderBox("paymentModalities");
+    updateJson(array, "purchasePrice");
   };
 
   UI_HANDLER.paymentModalities = function (array) {
     const { answer } = array[0];
+    retainedUI("paymentModalities");
     if (answer === "Yes") {
-      findBox("priceDue").render();
+      renderBox("priceDue");
+    } else {
+      renderBox("responsible");
     }
-    updateJson(array);
+    updateJson(array, "paymentModalities");
   };
 
   UI_HANDLER.priceDue = function (array) {
-    findBox("responsible").render();
-    updateJson(array);
+    retainedUI("priceDue");
+    renderBox("responsible");
+    updateJson(array, "priceDue");
   };
 
   UI_HANDLER.responsible = function (array) {
-    updateJson(array);
+    retainedUI("responsible");
+    const submit = new Submit();
+    submit.render();
+    updateJson(array, "responsible");
+    smoothScrolling("submit-box");
   };
 
   window.renderUI = function (array) {
     const { id, payload } = array;
-    retainedUI(id);
     UI_HANDLER[id](payload);
   };
 })();

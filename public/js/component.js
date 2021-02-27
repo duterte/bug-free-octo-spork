@@ -1,4 +1,5 @@
-function Component(object) {
+function component() {
+  // UI component
   class TypeQuestion {
     constructor(item) {
       this.text = item.text;
@@ -11,6 +12,7 @@ function Component(object) {
     }
   }
 
+  // UI component
   class CategorySelect {
     constructor(item) {
       this.text = item.text;
@@ -33,6 +35,7 @@ function Component(object) {
     }
   }
 
+  // UI component
   class CategoryInput {
     render() {
       const element = document.createElement("input");
@@ -41,6 +44,7 @@ function Component(object) {
     }
   }
 
+  // UI component
   class CategoryToggle {
     constructor(item) {
       this.props = { ...item };
@@ -103,16 +107,23 @@ function Component(object) {
     }
   }
 
+  // Controls the view and the behavior of the date picker
+  function datePicker(element) {
+    flatpickr(element, {});
+  }
+
+  // UI component
   class CategoryDate {
     render() {
       const element = document.createElement("input");
       element.classList.add("answer");
       element.classList.add("input");
-      flatpickr(element, {});
+      datePicker(element);
       return element;
     }
   }
 
+  // UI component
   class CategoryTable {
     constructor(entry) {
       this.entry = entry;
@@ -126,7 +137,7 @@ function Component(object) {
           const input = document.createElement("input");
           input.type = "text";
           input.className = `row-${x + 1} col-${i + 1} answer`;
-          if (i === 2) flatpickr(input, {});
+          if (i === 2) datePicker(input);
           element.append(input);
         }
       }
@@ -150,6 +161,99 @@ function Component(object) {
     }
   }
 
+  function multiple(object) {
+    const { parentElement } = object;
+    const dataClass = parentElement.getAttribute("data-class").split(",");
+    const questions = parentElement.querySelectorAll(".question");
+    const answers = parentElement.querySelectorAll(".answer");
+
+    const payload = [];
+
+    for (let i = 0; i < questions.length; i++) {
+      const testA = (() => {
+        let answer = "";
+        const answerType = dataClass[i];
+        if (answerType === "table") {
+          answer = [];
+          const thead = parentElement.querySelectorAll(".th");
+          for (let i = 0; i < answers.length; i++) {
+            const row = Number(answers[i].classList[0].split("-")[1]) - 1;
+            const col = Number(answers[i].classList[1].split("-")[1]) - 1;
+            answer[row] = {
+              ...answer[row],
+              [thead[col].innerText]: answers[i].value,
+            };
+          }
+        } else if (answerType === "select") {
+          answer === answers[i].innerText;
+        } else if (answerType === "input" || answerType === "date") {
+          answer = answers[i].value;
+        } else if (answerType === "toggle") {
+          answer = answers[i].checked ? "Yes" : "No";
+        } else {
+          answer = answers[i].innerText || answers[i].value;
+        }
+        // returns array or string;
+        return answer;
+      })();
+
+      payload.push({
+        question: questions[i].innerText,
+        answer: testA,
+      });
+    }
+    return payload;
+  }
+
+  function single(object) {
+    const { parentElement } = object;
+    const question = parentElement.querySelector(".question");
+    const answer = parentElement.querySelector(".selected");
+    const payload = [];
+    if (question && answer) {
+      payload.push({ question: question.innerText, answer: answer.innerText });
+    }
+    return payload;
+  }
+
+  const answers = [];
+
+  function submit() {
+    sessionStorage.setItem("answers", JSON.stringify(answers));
+    networkRequest();
+  }
+
+  class SubmitButton {
+    submit() {
+      const element = document.createElement("span");
+      element.className = "page-btn submit ripple-btn";
+      element.innerText = "Submit";
+      element.id = "submit";
+      element.addEventListener("click", (e) => {
+        rippleEffect(e);
+        submit();
+      });
+      return element;
+    }
+
+    buttons() {
+      const element = document.createElement("div");
+      element.className = "submit-buttons";
+      element.append(this.submit());
+      return element;
+    }
+
+    render() {
+      const holder = document.querySelector("#questions-holder");
+      const element = document.createElement("div");
+      element.className = "question-box";
+      element.id = "submit-box";
+      element.append(this.buttons());
+      holder.append(element);
+    }
+  }
+
+  // UI component
   class QuestionBox {
     constructor({ components = [], answer = "single", id }) {
       this.entries = components;
@@ -159,43 +263,21 @@ function Component(object) {
 
     next() {
       const element = document.createElement("span");
-      element.className = "next";
+      element.className = "page-btn ok ripple-btn";
       element.innerText = "OK";
       element.addEventListener("click", (e) => {
+        rippleEffect(e);
         const parentElement = e.target.parentElement.parentElement;
         const answers = parentElement.getAttribute("data-answers");
-        const payload = [];
+        let payload = [];
         if (answers === "single") {
-          // single
-          const question = parentElement.querySelector(".question").innerText;
-          const answer = parentElement.querySelector(".selected").innerText;
-          payload.push({ question, answer });
+          payload = single({ parentElement });
         } else if (answers === "multiple") {
-          // multiple
-          const dataClass = parentElement.getAttribute("data-class").split(",");
-          const questions = parentElement.querySelectorAll(".question");
-          const answers = parentElement.querySelectorAll(".answer");
-          for (let i = 0; i < questions.length; i++) {
-            payload.push({
-              question: questions[i].innerText,
-              answer: (() => {
-                let answer = "";
-                const answerType = dataClass[i];
-                if (answerType === "select") {
-                  answer === answers[i].innerText;
-                } else if (answerType === "input" || answerType === "date") {
-                  answer = answers[i].value;
-                } else if (answerType === "toggle") {
-                  answer = answers[i].checked ? "yes" : "no";
-                } else {
-                  answer = answers[i].innerText || answers[i].value;
-                }
-                return answer;
-              })(),
-            });
-          }
+          payload = multiple({ parentElement });
         }
-        renderUI({ payload, id: parentElement.id });
+        if (payload.length) {
+          renderUI({ payload, id: parentElement.id });
+        }
       });
       return element;
     }
@@ -257,5 +339,9 @@ function Component(object) {
     return { element, dataClass };
   }
 
-  return new QuestionBox(object);
+  return {
+    Question: QuestionBox,
+    Submit: SubmitButton,
+    answers: answers,
+  };
 }
