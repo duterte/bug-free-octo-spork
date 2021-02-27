@@ -9,3 +9,6 @@ const quill = new Quill("#editor", {
     },
   },
 });
+
+const API = JSON.parse(sessionStorage.getItem("api"));
+quill.setContents(API);

@@ -34,9 +34,8 @@ const API = [
       "WHEREAS, Assignor is owner of a trademark (the “Mark”) registered with the United States Patent and Trademark Office (“USPTO”) with details as follows:\n\n",
   },
   {
-    insert:
-      "Registration Number: [RGN]\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tRegistration Date: [RGD]\n\n\n",
-    attributes: { align: "center", bold: true },
+    insert: "Registration Number: [RGN]\t\t\tRegistration Date: [RGD]\n\n\n",
+    attributes: { bold: true },
   },
 ];
 

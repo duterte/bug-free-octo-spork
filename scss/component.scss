@@ -34,7 +34,9 @@
 }
 
 .select.selected {
-  background-color: rgba(0, 0, 255, 0.219);
+  background: linear-gradient(90deg, #00dbde, #fc00ff);
+  border: none;
+  font-weight: bolder;
 }
 
 input[type="checkbox"] {

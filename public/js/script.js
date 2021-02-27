@@ -41,7 +41,6 @@ class Editor {
 
   verticalMargin() {
     const outer = document.createElement("div");
-    // const inner = document.createElement("div");
     const paper = document.getElementById("paper");
     const computedStyleForMain = getComputedStyle(this.main);
     const paperBoundingBox = paper.getBoundingClientRect();
@@ -76,7 +75,7 @@ class Editor {
     outer.style.position = "absolute";
     outer.style.minHeight = "20px";
     outer.style.top = "0px";
-    // outer.innerText = "Horizontal Ruler Guide";
+    outer.innerText = "Horizontal Ruler Guide";
     outer.style.left = `${paperBoundingBox.left}px`;
     outer.style.width = `${paperBoundingBox.width}px`;
     outer.style.backgroundColor = "white";
@@ -178,7 +177,8 @@ function networkRequest() {
       removeQuestionHolder();
       const editor = new Editor();
       editor.render();
-      // renderEditor();
+      scrollTo({ top: 0 });
+      // quill.setContents(json);
     }
   });
   xhr.send();
