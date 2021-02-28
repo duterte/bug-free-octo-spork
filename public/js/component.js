@@ -282,9 +282,7 @@ function component() {
           if (!instanceOfArray) {
             return answer === "";
           } else {
-            // console.log(answer);
             for (const item of answer) {
-              // console.log(Object.values(item));
               const emptyValues = Object.values(item).filter(
                 (item) => item === ""
               );
@@ -295,8 +293,6 @@ function component() {
             return undefined;
           }
         });
-        // console.log(payload);
-        // consolelog({instaceof: payload})
         if (filterEmptyAnswer && filterEmptyAnswer.length) {
           payload = [];
         }

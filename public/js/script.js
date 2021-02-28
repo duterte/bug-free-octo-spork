@@ -162,6 +162,7 @@ function networkRequest() {
   });
   xhr.addEventListener("load", (e) => {
     const { target: res } = e;
+    console.log(res);
     if (res.readyState === 4 && res.status === 200) {
       const json = res.responseText;
       sessionStorage.setItem("api", json);
@@ -169,7 +170,8 @@ function networkRequest() {
       const editor = new Editor();
       editor.render();
       scrollTo({ top: 0 });
-      // quill.setContents(json);
+    } else if (res.status === 500) {
+      location.href = "/500";
     }
   });
   xhr.setRequestHeader("Content-Type", "application/json");

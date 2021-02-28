@@ -144,7 +144,8 @@ router.post("/", (req, res) => {
     console.log(API);
     return res.status(200).json(API);
   } catch (err) {
-    return res.status(500).send();
+    console.log(err);
+    return res.status(200).render("500");
   }
 });
 
