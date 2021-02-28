@@ -254,7 +254,29 @@
       object.components.find((item) => item.category === "table").tr = Number(
         num
       );
+      const trademarkAnswers = [
+        "Trademark Application",
+        "Registered Trademark",
+      ];
+      const answer1 = trademarkAnswers.find(
+        (item) => item === answers[0].answer
+      );
       const nextQuestion = new Question(object);
+      let th = object.components.find((item) => {
+        const { type } = item;
+        return type === "answer";
+      }).th;
+      if (answer1 === "Trademark Application") {
+        th[0] = "Application No.";
+        th[2] = "Application Date";
+      } else if (answer1 === "Registered Trademark") {
+        th[0] = "Registration No.";
+        th[2] = "Registration Date";
+      } else {
+        console.error("wrong answer");
+        throw new Error("wrong answer");
+      }
+
       nextQuestion.render();
       smoothScrolling("trademarks");
       doesTableRendered = true;

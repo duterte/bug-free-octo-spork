@@ -275,8 +275,41 @@ function component() {
         } else if (answers === "multiple") {
           payload = multiple({ parentElement });
         }
+
+        const filterEmptyAnswer = payload.filter((item) => {
+          const { answer } = item;
+          const instanceOfArray = answer instanceof Array;
+          if (!instanceOfArray) {
+            return answer === "";
+          } else {
+            // console.log(answer);
+            for (const item of answer) {
+              // console.log(Object.values(item));
+              const emptyValues = Object.values(item).filter(
+                (item) => item === ""
+              );
+              if (emptyValues.length) {
+                return true;
+              }
+            }
+            return undefined;
+          }
+        });
+        // console.log(payload);
+        // consolelog({instaceof: payload})
+        if (filterEmptyAnswer && filterEmptyAnswer.length) {
+          payload = [];
+        }
+
         if (payload.length) {
+          const successSoundFx = document.getElementById("success-sound-fx");
+          successSoundFx.play();
           renderUI({ payload, id: parentElement.id });
+        } else {
+          const errSoundFx = document.getElementById("error-sound-fx");
+          errSoundFx.play();
+          parentElement.classList.add("quake");
+          setTimeout(() => parentElement.classList.remove("quake"), 200);
         }
       });
       return element;

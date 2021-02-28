@@ -39,47 +39,49 @@ class Editor {
     });
   }
 
-  verticalMargin() {
-    const outer = document.createElement("div");
-    const paper = document.getElementById("paper");
-    const computedStyleForMain = getComputedStyle(this.main);
-    const paperBoundingBox = paper.getBoundingClientRect();
+  // verticalMargin() {
+  //   const outer = document.createElement("div");
+  //   const paper = document.getElementById("paper");
+  //   const computedStyleForMain = getComputedStyle(this.main);
+  //   const paperBoundingBox = paper.getBoundingClientRect();
 
-    outer.id = "vertical-margin";
-    outer.style.position = "absolute";
-    outer.style.width = "20px";
-    outer.style.height = `${paperBoundingBox.height}px`;
-    outer.style.top = computedStyleForMain["padding-top"];
-    outer.style.backgroundColor = "white";
-    outer.innerText = "Vertical Ruler Guide";
-    outer.style.writingMode = "vertical-rl";
-    outer.style.textOrientation = "upright";
-    // outer.style.lineHeight = "2px";
-    // outer
-    this.main.insertAdjacentElement("afterbegin", outer);
-  }
+  //   outer.id = "vertical-margin";
+  //   outer.style.position = "absolute";
+  //   outer.style.width = "20px";
+  //   outer.style.height = `${paperBoundingBox.height}px`;
+  //   outer.style.top = computedStyleForMain["padding-top"];
+  //   outer.style.backgroundColor = "white";
+  //   outer.innerText = "Vertical Ruler Guide";
+  //   outer.style.writingMode = "vertical-rl";
+  //   outer.style.textOrientation = "upright";
+  //   // outer.style.lineHeight = "2px";
+  //   // outer
+  //   this.main.insertAdjacentElement("afterbegin", outer);
+  // }
 
   horizontalMargin() {
     const outer = document.createElement("div");
     const paper = document.getElementById("paper");
-    const svg = document.createElement("svg");
     const paperBoundingBox = paper.getBoundingClientRect();
 
-    svg.id = "horizontal-margin";
-    svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+    // const svg = document.createElement("svg");
+    // svg.id = "horizontal-margin";
+    // svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
     // svg.setAttribute("height", "20px");
-    svg.setAttribute("width", "816px");
-    svg.setAttribute("viewBox", "0 0 355.93019 215.9");
-    svg.height = "20px";
-    svg.style.width = "100%";
+    // svg.setAttribute("width", "816px");
+    // svg.setAttribute("viewBox", "0 0 355.93019 215.9");
+    // svg.height = "20px";
+    // svg.style.width = "100%";
+    // outer.append(svg);
+
+    // outer.innerText = "Horizontal Ruler Guide";
+    outer.id = "ruler";
     outer.style.position = "absolute";
-    outer.style.minHeight = "20px";
-    outer.style.top = "0px";
-    outer.innerText = "Horizontal Ruler Guide";
+    outer.style.minHeight = `${paperBoundingBox.height}px`;
+    outer.style.top = "20px";
     outer.style.left = `${paperBoundingBox.left}px`;
     outer.style.width = `${paperBoundingBox.width}px`;
     outer.style.backgroundColor = "white";
-    outer.append(svg);
     this.main.insertAdjacentElement("afterbegin", outer);
   }
 
@@ -98,17 +100,6 @@ class Editor {
     this.toolbar()
       .then(() => this.editor())
       .then(() => this.horizontalMargin())
-      .then(() => {
-        const element = document.getElementById("horizontal-margin");
-        const ruler = new Rulez({
-          element: element,
-          // layout: "horizontal",
-          alignment: "bottom",
-        });
-        ruler.render();
-        // console.log(ruler);
-      })
-      .then(() => this.verticalMargin())
       .then(() => this.css())
       .then(() => this.scripts())
       .catch((err) => console.log(err));
@@ -158,7 +149,7 @@ function networkRequest() {
   bar.style.width = `1%`;
   // We use XHR since it is good on tracking networks progress unlike Fetch API
   const xhr = new XMLHttpRequest();
-  xhr.open("GET", "/api");
+  xhr.open("POST", "/api");
   xhr.addEventListener("progress", (e) => {
     const { lengthComputable, loaded, total } = e;
     const progress = lengthComputable ? (loaded / total) * 100 : 0;
@@ -181,5 +172,7 @@ function networkRequest() {
       // quill.setContents(json);
     }
   });
-  xhr.send();
+  xhr.setRequestHeader("Content-Type", "application/json");
+  xhr.setRequestHeader("Accept", "application/json");
+  xhr.send(sessionStorage.getItem("answers"));
 }

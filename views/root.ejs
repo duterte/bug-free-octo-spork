@@ -17,12 +17,16 @@
     </div>
   </main>
   <div id="network-indicator">
-      <div class="progress-bar">
+    <div class="progress-bar">
         <div id="progress-indicator"></div>
       </div>
     <div class="media-spinner">
       <img src="/media/rubix_cube.gif" alt="loading indicator"/>
     </div>
+  </div>
+  <div style="display: none;">
+    <audio id="error-sound-fx" src="/media/error_sound_1.mp3"></audio>
+    <audio id="success-sound-fx" src="/media/success_sound_1.mp3"></audio>
   </div>
   <script src="/js/flatpickr.js"></script>
   <script src="/js/ruler.js"></script>
@@ -32,8 +36,7 @@
   <script src="/js/effects.js"></script>
   
   <!-- <script>
-    const editor = new Editor()
-    editor.render()
+    networkRequest()
   </script> -->
 </body>
 

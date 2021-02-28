@@ -38,11 +38,23 @@
   cursor: pointer;
 }
 
+.select {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  border: none;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
 .select.selected {
   background: -webkit-gradient(linear, left top, right top, from(#00dbde), to(#fc00ff));
   background: linear-gradient(90deg, #00dbde, #fc00ff);
   border: none;
   font-weight: bolder;
+  -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 input[type="checkbox"] {
@@ -127,6 +139,7 @@ label {
   height: 100vh;
   background-color: white;
   display: none;
+  z-index: 100;
 }
 
 #network-indicator .media-spinner {
@@ -163,7 +176,7 @@ label {
   width: 816px;
   height: 1056px;
   margin: 0 auto;
-  padding: 96px;
+  padding: 126px;
   background-color: white;
   -webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
           box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
@@ -175,6 +188,12 @@ label {
 
 .text-editor .ql-editor {
   padding: 0;
+}
+
+.text-editor .rul_ruler,
+.text-editor .rul_line,
+.text-editor .rul_corner {
+  z-index: 99;
 }
 
 #toolbar {
