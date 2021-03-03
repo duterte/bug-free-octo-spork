@@ -90,7 +90,7 @@ function docx2Json(buffer) {
             for (let i = 0; i < property.length; i++) {
               const attr = property[i]['w:rPr'][0];
               const attrib = getAttributes(attr);
-              insert = '  \n';
+              insert = ' \n';
               paragraph.push({ insert, attributes: { ...attrib } });
             }
           }

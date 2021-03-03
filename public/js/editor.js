@@ -21,7 +21,8 @@ const quill = new Quill('#editor', {
 quill.setContents(delta);
 
 var myRuler = new ruler({
-  container: document.getElementById('ruler'), // reference to DOM element to apply rulers on
+  container: document.getElementById('ruler'),
+  // reference to DOM element to apply rulers on
   // rulerHeight: 15, // thickness of ruler
   // fontFamily: "arial", // font for points
   // fontSize: "7px",
