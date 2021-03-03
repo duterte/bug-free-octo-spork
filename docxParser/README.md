@@ -1,2 +1,2 @@
-This process use to watch changes on a directory;
-this module is responsible of convertin docx file into json format
+This module use to watch changes on a directory;
+this is responsible of converting docx file into json format

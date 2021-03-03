@@ -31,4 +31,8 @@ fs.watch(path.resolve(entry), { persistent: true }, (event, fileName) => {
   }
 });
 
-console.log(chalk.yellow(`Watching ${entry} directory for any file change`));
+console.log(
+  chalk.yellow(
+    `Watching "${path.resolve(process.cwd(), entry)}" for any file change`
+  )
+);

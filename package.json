@@ -2,10 +2,13 @@
   "name": "project_trademark",
   "version": "1.0.0",
   "description": "",
-  "main": "server",
+  "main": "index",
   "scripts": {
-    "start": "node server",
-    "dev": "nodemon server"
+    "start": "node .",
+    "server": "node server",
+    "docxParser": "node docxParser",
+    "dev:start": "nodemon .",
+    "dev:server": "nodemon server"
   },
   "keywords": [],
   "author": "",
