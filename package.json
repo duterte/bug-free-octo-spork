@@ -4,11 +4,8 @@
   "description": "",
   "main": "index",
   "scripts": {
-    "start": "node .",
-    "server": "node server",
-    "docxParser": "node docxParser",
-    "dev:start": "nodemon .",
-    "dev:server": "nodemon server"
+    "start": "node server",
+    "dev": "nodemon server"
   },
   "keywords": [],
   "author": "",
@@ -31,8 +28,9 @@
       "/public/*",
       "/scss/*",
       "/views/*",
-      "docx",
-      "docxParser"
+      "/docx",
+      "/docxParser",
+      "/xml"
     ]
   }
 }
