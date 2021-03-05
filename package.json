@@ -29,7 +29,9 @@
     "ignore": [
       "/public/*",
       "/scss/*",
-      "/views/*"
+      "/views/*",
+      "docx",
+      "docxParser"
     ]
   }
 }

@@ -77,9 +77,18 @@ class Editor {
   editor() {
     const paper = document.createElement('div');
     const editor = document.createElement('div');
+    const { json } = JSON.parse(sessionStorage.getItem('api'));
+    const attributes = json.attributes;
+
     this.main.className = 'text-editor';
     paper.className = 'paper';
+    paper.style.width = attributes.pageWidth;
+    paper.style.minHeight = attributes.pageHeight;
     paper.id = 'paper';
+    editor.style.marginTop = attributes.marginTop;
+    editor.style.marginRight = attributes.marginRight;
+    editor.style.marginBottom = attributes.marginBottom;
+    editor.style.marginLeft = attributes.marginLeft;
     editor.id = 'editor';
     paper.append(editor);
     this.main.append(paper);
@@ -88,7 +97,7 @@ class Editor {
     removeQuestionHolder();
     this.toolbar()
       .then(() => this.editor())
-      .then(() => this.horizontalMargin())
+      // .then(() => this.horizontalMargin())
       .then(() => this.css())
       .then(() => this.scripts())
       .catch((err) => console.log(err));

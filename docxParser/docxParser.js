@@ -30,7 +30,7 @@ function getAttributes(obj) {
   return {
     font,
     size: `${size}pt`,
-    color: `#${color}`,
+    color: color ? `#${color}` : undefined,
     bold,
     italic,
     strike,
@@ -50,16 +50,58 @@ function getAttributes(obj) {
 // fontFamily = font thats used on the insert
 // insert = text content in word document
 
-function docx2Json(buffer) {
+function docxContentToJson(buffer) {
   return new Promise((resolve, reject) => {
     parseString(buffer, (err, result) => {
       if (err) reject(err);
       const xmlBody = result['w:document']['w:body'];
-      const paragraph = [];
+      let document = {
+        contents: [],
+        attributes: {},
+      };
       for (const item of xmlBody) {
-        const object = item['w:p'];
-        for (let i = 0; i < object.length; i++) {
-          const p = object[i];
+        const paragraphs = item['w:p'];
+
+        // getting page attributes
+        const pageProperties = item['w:sectPr'][0];
+        const pageSize = pageProperties['w:pgSz'][0]['$'];
+        const pageMargin = pageProperties['w:pgMar'][0]['$'];
+        const pageColumn = pageProperties['w:cols'][0]['$'];
+        const documentGrid = pageProperties['w:docGrid'][0]['$'];
+
+        const { 'w:w': pageWidth, 'w:h': pageHeight } = pageSize;
+        const {
+          'w:top': marginTop,
+          'w:right': marginRight,
+          'w:bottom': marginBottom,
+          'w:left': marginLeft,
+          'w:header': marginHeader,
+          'w:footer': marginFooter,
+          'w:gutter': marginGutter,
+        } = pageMargin;
+        const { 'w:space': space } = pageColumn;
+        const { 'w:linePitch': linePitch } = documentGrid;
+
+        function numToPtUnit(num) {
+          return `${num / 20}pt`;
+        }
+
+        document.attributes = {
+          pageWidth: pageWidth ? numToPtUnit(pageWidth) : undefined,
+          pageHeight: pageHeight ? numToPtUnit(pageHeight) : undefined,
+          marginTop: marginTop ? numToPtUnit(marginTop) : undefined,
+          marginRight: marginRight ? numToPtUnit(marginRight) : undefined,
+          marginBottom: marginBottom ? numToPtUnit(marginBottom) : undefined,
+          marginLeft: marginLeft ? numToPtUnit(marginLeft) : undefined,
+          marginHeader: marginHeader ? numToPtUnit(marginHeader) : undefined,
+          marginFooter: marginFooter ? numToPtUnit(marginFooter) : undefined,
+          marginGutter: marginGutter ? numToPtUnit(marginGutter) : undefined,
+          space: parseInt(space),
+          linePitch: parseInt(linePitch),
+        };
+        console.log(document.attributes);
+        for (let i = 0; i < paragraphs.length; i++) {
+          const p = paragraphs[i];
           const runs = p['w:r'];
           const property = p['w:pPr'];
 
@@ -84,19 +126,19 @@ function docx2Json(buffer) {
               }
               if (tab) insert = '\t';
               if (i === runs.length - 1) insert += '\n';
-              paragraph.push({ insert, attributes: { ...attrib } });
+              document.contents.push({ insert, attributes: { ...attrib } });
             }
           } else {
             for (let i = 0; i < property.length; i++) {
               const attr = property[i]['w:rPr'][0];
               const attrib = getAttributes(attr);
-              insert = ' \n';
-              paragraph.push({ insert, attributes: { ...attrib } });
+              insert = '\n';
+              document.contents.push({ insert, attributes: { ...attrib } });
             }
           }
         }
       }
-      resolve(paragraph);
+      resolve(document);
     });
   });
 }
@@ -106,13 +148,14 @@ function docx2Json(buffer) {
 function zipReader(filePath) {
   const zip = new AdmZip(filePath);
   const docXML = zip.getEntry('word/document.xml');
+  zip.extractEntryTo(docXML, path.resolve('xml'), false, true);
   return docXML.getData();
 }
 
 // docxParser(filePath : String ) => Promise<void>
 
 async function docxParser(filePath) {
-  const json = [];
+  // const json = [];
   try {
     const basename = path.basename(filePath);
     if (!/.docx$/i.test(basename) || /^~/i.test(basename)) {
@@ -123,11 +166,12 @@ async function docxParser(filePath) {
     }
 
     const buffer = zipReader(filePath);
-    json.push(...(await docx2Json(buffer)));
+    // json.push(await docxContentToJson(buffer));
+    return await docxContentToJson(buffer);
   } catch (err) {
     console.log(err);
   }
-  return json;
+  return {};
 }
 
 module.exports = docxParser;

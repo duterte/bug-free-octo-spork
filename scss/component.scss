@@ -46,7 +46,7 @@
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-input[type="checkbox"] {
+input[type='checkbox'] {
   margin-right: 1em;
 }
 
@@ -142,10 +142,8 @@ label {
 
 .text-editor {
   .paper {
-    width: 816px;
-    height: 1056px;
     margin: 0 auto;
-    padding: 126px;
+    border: 1px solid white;
     background-color: white;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
   }
@@ -156,6 +154,13 @@ label {
   .ql-editor {
     padding: 0;
   }
+  .ql-container {
+    height: auto;
+  }
+  .ql-container.ql-snow {
+    border: none;
+  }
+
   .rul_ruler,
   .rul_line,
   .rul_corner {

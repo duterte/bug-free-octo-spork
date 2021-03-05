@@ -3,7 +3,8 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
   try {
-    return res.render('root');
+    return res /* .setHeader('ACCEPT-CH', 'ch1,ch2,ch3') */
+      .render('root');
   } catch (err) {
     return res.status(500).json();
   }
