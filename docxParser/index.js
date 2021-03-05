@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs-extra');
+// const watch = require('node-watch');
 const chalk = require('chalk');
 const docxParser = require('./docxParser');
 
@@ -16,9 +17,9 @@ fs.watch(path.resolve(entry), { persistent: true }, (event, fileName) => {
         if (!pathExists) return;
         const API = await docxParser(filePath);
         const name = fileName.match(/(.*)\.(.*)$/i)[1] + '.json';
-        const json = fs.createWriteStream(path.resolve(dest, name), {
-          mode: 0o777,
-        });
+        console.log({ dest, name, fileName });
+        const destPath = path.resolve(dest, name);
+        const json = fs.createWriteStream(destPath, { mode: 0o777 });
         json.write(JSON.stringify(API, null, 2));
         json.end();
       } catch (err) {

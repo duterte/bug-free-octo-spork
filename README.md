@@ -9,15 +9,6 @@ then execute this following commands in the Terminal
 ```cmd
 
   $ npm install
-
-  $ npm start
-
-  or
-
-  $ node server
-
-  or
-
   $ node .
 
 ```

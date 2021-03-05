@@ -82,9 +82,7 @@ function docxContentToJson(buffer) {
         const { 'w:space': space } = pageColumn;
         const { 'w:linePitch': linePitch } = documentGrid;
 
-        function numToPtUnit(num) {
-          return `${num / 20}pt`;
-        }
+        const numToPtUnit = (num) => `${num / 20}pt`;
 
         document.attributes = {
           pageWidth: pageWidth ? numToPtUnit(pageWidth) : undefined,
@@ -99,7 +97,7 @@ function docxContentToJson(buffer) {
           space: parseInt(space),
           linePitch: parseInt(linePitch),
         };
-        console.log(document.attributes);
+        // console.log(document.attributes);
         for (let i = 0; i < paragraphs.length; i++) {
           const p = paragraphs[i];
           const runs = p['w:r'];
@@ -128,7 +126,7 @@ function docxContentToJson(buffer) {
               if (i === runs.length - 1) insert += '\n';
               document.contents.push({ insert, attributes: { ...attrib } });
             }
-          } else {
+          } else if (property && property.length) {
             for (let i = 0; i < property.length; i++) {
               const attr = property[i]['w:rPr'][0];
               const attrib = getAttributes(attr);
@@ -147,15 +145,15 @@ function docxContentToJson(buffer) {
 
 function zipReader(filePath) {
   const zip = new AdmZip(filePath);
+  const reduce = filePath.split(/\\|\//).reduceRight((i) => i);
   const docXML = zip.getEntry('word/document.xml');
   zip.extractEntryTo(docXML, path.resolve('xml'), false, true);
   return docXML.getData();
 }
-
+//
 // docxParser(filePath : String ) => Promise<void>
 
 async function docxParser(filePath) {
-  // const json = [];
   try {
     const basename = path.basename(filePath);
     if (!/.docx$/i.test(basename) || /^~/i.test(basename)) {
@@ -166,7 +164,6 @@ async function docxParser(filePath) {
     }
 
     const buffer = zipReader(filePath);
-    // json.push(await docxContentToJson(buffer));
     return await docxContentToJson(buffer);
   } catch (err) {
     console.log(err);
