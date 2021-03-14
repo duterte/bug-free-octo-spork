@@ -1,5 +1,4 @@
 {
-  "contents": [],
   "attributes": {
     "pageWidth": "612pt",
     "pageHeight": "792pt",
@@ -10,7 +9,255 @@
     "marginHeader": "36pt",
     "marginFooter": "36pt",
     "marginGutter": "0pt",
-    "space": 720,
-    "linePitch": 360
-  }
+    "space": "36pt",
+    "linePitch": "18pt"
+  },
+  "blocks": [
+    {
+      "type": "table",
+      "rows": [
+        {
+          "properties": {
+            "height": "22pt"
+          },
+          "row": [
+            {
+              "properties": {
+                "width": "148.25pt",
+                "backgroundColor": "#4472C4",
+                "verticalAlignment": "center"
+              },
+              "data": {
+                "properties": {
+                  "textAlign": "center",
+                  "color": "#FFFFFF"
+                },
+                "content": [
+                  {
+                    "insert": "Heading 1",
+                    "attributes": {
+                      "color": "#FFFFFF",
+                      "fontSize": "11pt",
+                      "size": "11pt",
+                      "fontFamily": "MS Reference Sans Serif"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "properties": {
+                "width": "157.5pt",
+                "backgroundColor": "#4472C4",
+                "verticalAlignment": "center"
+              },
+              "data": {
+                "properties": {
+                  "textAlign": "center",
+                  "color": "#FFFFFF"
+                },
+                "content": [
+                  {
+                    "insert": "Heading 2",
+                    "attributes": {
+                      "color": "#FFFFFF",
+                      "fontSize": "11pt",
+                      "size": "11pt",
+                      "fontFamily": "MS Reference Sans Serif"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "properties": {
+                "width": "161.75pt",
+                "backgroundColor": "#4472C4",
+                "verticalAlignment": "center"
+              },
+              "data": {
+                "properties": {
+                  "textAlign": "center",
+                  "color": "#FFFFFF"
+                },
+                "content": [
+                  {
+                    "insert": "Heading 3",
+                    "attributes": {
+                      "color": "#FFFFFF",
+                      "fontSize": "11pt",
+                      "size": "11pt",
+                      "fontFamily": "MS Reference Sans Serif"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "properties": {},
+          "row": [
+            {
+              "properties": {
+                "width": "148.25pt"
+              },
+              "data": {
+                "properties": {},
+                "content": [
+                  {
+                    "insert": "1",
+                    "attributes": {
+                      "fontSize": "11pt",
+                      "size": "11pt",
+                      "fontFamily": "MS Reference Sans Serif"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "properties": {
+                "width": "157.5pt"
+              },
+              "data": {
+                "properties": {},
+                "content": [
+                  {
+                    "insert": "John Doe",
+                    "attributes": {
+                      "fontSize": "11pt",
+                      "size": "11pt",
+                      "fontFamily": "MS Reference Sans Serif"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "properties": {
+                "width": "161.75pt"
+              },
+              "data": {
+                "properties": {},
+                "content": [
+                  {
+                    "insert": "March 8, 2020",
+                    "attributes": {
+                      "fontSize": "11pt",
+                      "size": "11pt",
+                      "fontFamily": "MS Reference Sans Serif"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "properties": {},
+          "row": [
+            {
+              "properties": {
+                "width": "148.25pt"
+              },
+              "data": {
+                "properties": {},
+                "content": [
+                  {
+                    "insert": "2",
+                    "attributes": {
+                      "fontSize": "11pt",
+                      "size": "11pt",
+                      "fontFamily": "MS Reference Sans Serif"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "properties": {
+                "width": "157.5pt"
+              },
+              "data": {
+                "properties": {},
+                "content": [
+                  {
+                    "insert": "John Smith",
+                    "attributes": {
+                      "fontSize": "11pt",
+                      "size": "11pt",
+                      "fontFamily": "MS Reference Sans Serif"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "properties": {
+                "width": "161.75pt"
+              },
+              "data": {
+                "properties": {},
+                "content": [
+                  {
+                    "insert": "March 8, 2020",
+                    "attributes": {
+                      "fontSize": "11pt",
+                      "size": "11pt",
+                      "fontFamily": "MS Reference Sans Serif"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "properties": {},
+      "contents": [
+        {
+          "insert": "\n"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "properties": {
+        "fontFamily": "Arial Black",
+        "font": "Arial Black",
+        "bold": true,
+        "fontWeight": "bold",
+        "italic": true,
+        "fontStyle": "italic",
+        "fontSize": "24pt",
+        "size": "24pt"
+      },
+      "contents": [
+        {
+          "insert": "The Quick Brown ",
+          "attributes": {
+            "fontSize": "11pt",
+            "size": "11pt",
+            "fontFamily": "MS Reference Sans Serif"
+          }
+        },
+        {
+          "insert": "fox",
+          "attributes": {
+            "fontFamily": "Arial Black",
+            "font": "Arial Black",
+            "fontSize": "24pt",
+            "size": "24pt"
+          }
+        },
+        {
+          "insert": "\n"
+        }
+      ]
+    }
+  ]
 }

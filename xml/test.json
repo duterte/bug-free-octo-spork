@@ -1,0 +1,36 @@
+{
+  "attributes": {
+    "marginTop": "72pt",
+    "marginRight": "72pt",
+    "marginBottom": "72pt",
+    "marginLeft": "72pt",
+    "marginHeader": "36pt",
+    "marginFooter": "36pt",
+    "marginGutter": "0pt",
+    "space": "36pt",
+    "linePitch": "18pt"
+  },
+  "blocks": [
+    {
+      "type": "paragraph",
+      "properties": {},
+      "content": [
+        {
+          "insert": "\n"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "properties": {},
+      "content": [
+        {
+          "insert": "Asdsadsadasdasdasdsadasd"
+        },
+        {
+          "insert": "\n"
+        }
+      ]
+    }
+  ]
+}

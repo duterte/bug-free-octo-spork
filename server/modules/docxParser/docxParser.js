@@ -1,144 +1,30 @@
 const fs = require('fs');
 const path = require('path');
-const { parseString } = require('xml2js');
+const cheerio = require('cheerio');
 const AdmZip = require('adm-zip');
-
-function getAttributes(obj) {
-  //  getting text properties
-  const font = obj['w:rFonts'] ? obj['w:rFonts'][0]['$']['w:ascii'] : undefined;
-
-  const size = obj['w:sz'] ? obj['w:sz'][0]['$']['w:val'] / 2 : undefined;
-
-  const color = obj['w:color'] ? obj['w:color'][0]['$']['w:val'] : undefined;
-
-  const bold = obj['w:b'] ? true : false;
-  const italic = obj['w:i'] ? true : false;
-  const strike = obj['w:strike'] ? true : false;
-
-  const underline = obj['w:u'] ? obj['w:u'][0]['$']['w:val'] : undefined;
-
-  // underline possible values
-  // 'single', 'double', 'thick', 'dotted', 'wave', 'dash'
-  // 'dotDash', 'dotDotDash'
-
-  // underline depends on docx XML schema and values
-
-  const highlight = obj['w:highlight']
-    ? obj['w:highlight'][0]['$']['w:val']
-    : undefined;
-
-  return {
-    font,
-    size: `${size}pt`,
-    color: color ? `#${color}` : undefined,
-    bold,
-    italic,
-    strike,
-    underline,
-    background: highlight,
-  };
-}
+const section = require('./section');
+const table = require('./table');
+const { paragraph } = require('./paragraph');
 
 // =======================================================
 // This piece of code below convert word content into json
 // =======================================================
 
-// NOTE: This module only support RTL text direction
-
-// (buffer : Buffer ) => {fontSize : string, fontFamily : string, insert : string}
-// fontSize = size of the text in .pt
-// fontFamily = font thats used on the insert
-// insert = text content in word document
-
-function docxContentToJson(buffer) {
-  return new Promise((resolve, reject) => {
-    parseString(buffer, (err, result) => {
-      if (err) reject(err);
-      const xmlBody = result['w:document']['w:body'];
-      let document = {
-        contents: [],
-        attributes: {},
-      };
-      for (const item of xmlBody) {
-        const paragraphs = item['w:p'];
-
-        // getting page attributes
-        const pageProperties = item['w:sectPr'][0];
-        const pageSize = pageProperties['w:pgSz'][0]['$'];
-        const pageMargin = pageProperties['w:pgMar'][0]['$'];
-        const pageColumn = pageProperties['w:cols'][0]['$'];
-        const documentGrid = pageProperties['w:docGrid'][0]['$'];
-
-        const { 'w:w': pageWidth, 'w:h': pageHeight } = pageSize;
-        const {
-          'w:top': marginTop,
-          'w:right': marginRight,
-          'w:bottom': marginBottom,
-          'w:left': marginLeft,
-          'w:header': marginHeader,
-          'w:footer': marginFooter,
-          'w:gutter': marginGutter,
-        } = pageMargin;
-        const { 'w:space': space } = pageColumn;
-        const { 'w:linePitch': linePitch } = documentGrid;
-
-        const numToPtUnit = (num) => `${num / 20}pt`;
-
-        document.attributes = {
-          pageWidth: pageWidth ? numToPtUnit(pageWidth) : undefined,
-          pageHeight: pageHeight ? numToPtUnit(pageHeight) : undefined,
-          marginTop: marginTop ? numToPtUnit(marginTop) : undefined,
-          marginRight: marginRight ? numToPtUnit(marginRight) : undefined,
-          marginBottom: marginBottom ? numToPtUnit(marginBottom) : undefined,
-          marginLeft: marginLeft ? numToPtUnit(marginLeft) : undefined,
-          marginHeader: marginHeader ? numToPtUnit(marginHeader) : undefined,
-          marginFooter: marginFooter ? numToPtUnit(marginFooter) : undefined,
-          marginGutter: marginGutter ? numToPtUnit(marginGutter) : undefined,
-          space: parseInt(space),
-          linePitch: parseInt(linePitch),
-        };
-        // console.log(document.attributes);
-        for (let i = 0; i < paragraphs.length; i++) {
-          const p = paragraphs[i];
-          const runs = p['w:r'];
-          const property = p['w:pPr'];
-
-          if (runs && runs.length) {
-            for (let i = 0; i < runs.length; i++) {
-              const attr = runs[i]['w:rPr'][0];
-              const attrib = getAttributes(attr);
-              const wt = runs[i]['w:t'];
-              const tab = runs[i]['w:tab'];
-              let insert;
-              if (wt) {
-                if (typeof wt[0] !== 'string') {
-                  const { $, _ } = wt[0];
-                  if (!_) {
-                    insert = ' ';
-                  } else {
-                    insert = _;
-                  }
-                } else {
-                  insert = wt[0];
-                }
-              }
-              if (tab) insert = '\t';
-              if (i === runs.length - 1) insert += '\n';
-              document.contents.push({ insert, attributes: { ...attrib } });
-            }
-          } else if (property && property.length) {
-            for (let i = 0; i < property.length; i++) {
-              const attr = property[i]['w:rPr'][0];
-              const attrib = getAttributes(attr);
-              insert = '\n';
-              document.contents.push({ insert, attributes: { ...attrib } });
-            }
-          }
-        }
-      }
-      resolve(document);
-    });
-  });
+function docxContentToJson(xml) {
+  const $1 = cheerio.load(xml, { xmlMode: true, xml: true });
+  const xmlChildren = $1('w\\:body').children();
+  const document = { attributes: {}, blocks: [] };
+  for (const xmlChild of xmlChildren) {
+    const { name, children } = xmlChild;
+    if (name === 'w:sectPr') {
+      document.attributes = section(children);
+    } else if (name === 'w:p') {
+      document.blocks.push({ type: 'paragraph', ...paragraph(children) });
+    } else if (name === 'w:tbl') {
+      document.blocks.push({ type: 'table', ...table(children) });
+    }
+  }
+  return document;
 }
 
 // zipReader(filePath : String || Buffer ) => buffer
@@ -164,7 +50,8 @@ async function docxParser(filePath) {
     }
 
     const buffer = zipReader(filePath);
-    return await docxContentToJson(buffer);
+    const xml = buffer.toString('utf-8');
+    return await docxContentToJson(xml);
   } catch (err) {
     console.log(err);
   }

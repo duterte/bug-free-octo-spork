@@ -212,3 +212,22 @@ main.text-editor {
   background: linear-gradient(90deg, #8ec5fc, #e0c3fc);
   position: relative;
 }
+
+.ql-table,
+.ql-th,
+.ql-td {
+  border-collapse: collapse;
+  empty-cells: show;
+  border: 1px solid black;
+}
+
+.ql-thead {
+  text-align: center;
+  font-weight: bold;
+}
+
+table,
+thead,
+tbody {
+  width: 100%;
+}

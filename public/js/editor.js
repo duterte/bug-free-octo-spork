@@ -1,24 +1,113 @@
-const toolbarOption = [['bold', 'italic', 'underline', 'strike']];
 const sizeStyle = Quill.import('attributors/style/size');
 const fontFamily = Quill.import('attributors/style/font');
-const { json, attributors } = JSON.parse(sessionStorage.getItem('api'));
-const delta = json.contents;
+const Parchment = Quill.import('parchment');
+const Block = Quill.import('blots/block');
+const Embed = Quill.import('blots/embed');
+const Container = Quill.import('blots/container');
+const Module = Quill.import('core/module');
+
+class TableData extends Block {
+  static blotName = 'td';
+  static tagName = 'td';
+  static className = 'ql-td';
+  static create(object) {
+    const { text, attributes } = object;
+    let node = super.create();
+    for (const key in attributes) {
+      node.style[key] = attributes[key];
+    }
+    node.innerText = text;
+    return node;
+  }
+}
+
+class TableRow extends Block {
+  static blotName = 'tr';
+  static tagName = 'tr';
+  static className = 'ql-tr';
+  static create(row) {
+    const { properties, cells } = row;
+    let node = super.create();
+    for (const key in properties) {
+      node.style[key] = properties[key];
+    }
+    for (const cell of cells) {
+      node.append(TableData.create(cell));
+    }
+    return node;
+  }
+}
+
+class Table extends Parchment.Embed {
+  static blotName = 'table';
+  static tagName = 'table';
+  static className = 'ql-table';
+  static create(rows = []) {
+    let node = super.create();
+    node.setAttribute('contenteditable', false);
+    for (const row of rows) {
+      node.append(TableRow.create(row));
+    }
+    return node;
+  }
+  static allowedChildren = [TableRow];
+
+  static value(domNode) {
+    const tr = domNode.querySelectorAll('tr');
+    const table = [];
+    for (const node of tr) {
+      const trStyle = node.getAttribute('style');
+      let properties = {};
+      let cells = [];
+      if (trStyle) {
+        const style = trStyle.split(';').filter((i) => i);
+        for (const item of style) {
+          const entry = item.split(':');
+          properties[entry[0]] = entry[1].trim();
+        }
+      }
+      const td = node.querySelectorAll('td');
+      for (const node2 of td) {
+        const tdStyle = node2.getAttribute('style');
+        let attributes = {};
+        let text = node2.innerText;
+        if (tdStyle) {
+          const style = tdStyle.split(';').filter((i) => i);
+          for (const item of style) {
+            const entry = item.split(':');
+            const hypen = entry[0].split('-');
+            if (hypen.length === 2) {
+              hypen[1] =
+                hypen[1].charAt(0).toUpperCase() + hypen[1].substring(1);
+            }
+            entry[0] = hypen.join('').trim();
+            attributes[entry[0]] = entry[1].trim();
+          }
+        }
+        // console.log(attributes);
+        cells.push({ attributes, text });
+      }
+      table.push({ properties, cells });
+    }
+    const delta = table;
+    return delta;
+  }
+}
+
 Quill.register(sizeStyle, true);
 Quill.register(fontFamily, true);
-sizeStyle.whitelist = attributors.sizes;
-fontFamily.whitelist = attributors.fonts;
+Quill.register('formats/table', Table);
 
 const quill = new Quill('#editor', {
   theme: 'snow',
   modules: {
-    toolbar: {
-      container: '#toolbar',
-    },
+    toolbar: false,
   },
 });
 
 function setContents(delta) {
   const contents = quill.setContents(delta);
+  // console.log(contents.ops);
   sessionStorage.setItem('contents', JSON.stringify(contents.ops));
 }
 
@@ -81,20 +170,41 @@ function replaceTemplateVariable(object) {
   sessionStorage.setItem('contents', JSON.stringify(contents.ops));
 }
 
-setContents(delta);
+function createTable() {
+  const answers = JSON.parse(sessionStorage.getItem('answers'));
+  const group = answers.filter((i) => i.groupName === 'trademarks');
+  const rows = [];
+  for (const member of group) {
+    const answer = member.answer;
+    for (let i = 0; i < answer.length; i++) {
+      if (i === 0) {
+        const keys = Object.keys(answer[i]);
+        const cells = [];
+        for (const key of keys) {
+          cells.push({
+            text: key,
+            attributes: { textAlign: 'center', bold: true },
+          });
+        }
+        rows.push({ properties: { height: '22pt' }, cells });
+      }
+      const values = Object.values(answer[i]);
+      const cells = [];
+      for (const value of values) {
+        cells.push({ text: value, attributes: {} });
+      }
+      rows.push({ properties: {}, cells });
+    }
+  }
+  // console.log(rows);
+  return rows;
+}
 
-// var myRuler = new ruler({
-// container: document.getElementById('ruler'),
-// reference to DOM element to apply rulers on
-// rulerHeight: 15, // thickness of ruler
-// fontFamily: "arial", // font for points
-// fontSize: "7px",
-// strokeStyle: "black",
-// lineWidth: 1,
-// enableMouseTracking: true,
-// enableToolTip: true,
-// });
-// myRuler.api.setScale(1);
-// myRuler.api.setPos({ x: 0, y: 0 });
-// myRuler.api.setGuides([{ dimension: 2, poxX: 0, posY: 2 }]);
-// console.log(myRuler.api.getGuides());
+const { delta: json, attributors } = JSON.parse(sessionStorage.getItem('api'));
+sizeStyle.whitelist = attributors.sizes;
+fontFamily.whitelist = attributors.fonts;
+const delta = json;
+setContents(delta);
+createTable();
+
+// console.log(delta[36]);

@@ -12,14 +12,16 @@ class Editor {
     this.main = document.querySelector('main');
   }
   scripts() {
-    const script = document.createElement('script');
-    script.src = '/js/quill.js';
-    script.addEventListener('load', () => {
-      const script = document.createElement('script');
-      script.src = '/js/editor.js';
-      this.body.append(script);
+    new Promise((resolve, reject) => {
+      const script1 = document.createElement('script');
+      this.body.append(script1);
+      script1.src = '/js/quill.js';
+      script1.addEventListener('load', () => resolve());
+    }).then(() => {
+      const script3 = document.createElement('script');
+      script3.src = '/js/editor.js';
+      this.body.append(script3);
     });
-    this.body.append(script);
   }
 
   css() {
@@ -39,57 +41,20 @@ class Editor {
     });
   }
 
-  // verticalMargin() {
-  //   const outer = document.createElement("div");
-  //   const paper = document.getElementById("paper");
-  //   const computedStyleForMain = getComputedStyle(this.main);
-  //   const paperBoundingBox = paper.getBoundingClientRect();
-
-  //   outer.id = "vertical-margin";
-  //   outer.style.position = "absolute";
-  //   outer.style.width = "20px";
-  //   outer.style.height = `${paperBoundingBox.height}px`;
-  //   outer.style.top = computedStyleForMain["padding-top"];
-  //   outer.style.backgroundColor = "white";
-  //   outer.innerText = "Vertical Ruler Guide";
-  //   outer.style.writingMode = "vertical-rl";
-  //   outer.style.textOrientation = "upright";
-  //   // outer.style.lineHeight = "2px";
-  //   // outer
-  //   this.main.insertAdjacentElement("afterbegin", outer);
-  // }
-
-  horizontalMargin() {
-    const outer = document.createElement('div');
-    const paper = document.getElementById('paper');
-    const paperBoundingBox = paper.getBoundingClientRect();
-
-    outer.id = 'ruler';
-    outer.style.position = 'absolute';
-    outer.style.minHeight = `${paperBoundingBox.height}px`;
-    outer.style.top = '20px';
-    outer.style.left = `${paperBoundingBox.left}px`;
-    outer.style.width = `${paperBoundingBox.width}px`;
-    outer.style.backgroundColor = 'white';
-    this.main.insertAdjacentElement('afterbegin', outer);
-  }
-
   editor() {
     const paper = document.createElement('div');
     const editor = document.createElement('div');
-    const { json } = JSON.parse(sessionStorage.getItem('api'));
-    const attributes = json.attributes;
-
+    const { attributes } = JSON.parse(sessionStorage.getItem('api'));
     this.main.className = 'text-editor';
     paper.className = 'paper';
+    paper.id = 'paper';
     paper.style.width = attributes.pageWidth;
     paper.style.minHeight = attributes.pageHeight;
-    paper.id = 'paper';
+    editor.id = 'editor';
     editor.style.marginTop = attributes.marginTop;
     editor.style.marginRight = attributes.marginRight;
     editor.style.marginBottom = attributes.marginBottom;
     editor.style.marginLeft = attributes.marginLeft;
-    editor.id = 'editor';
     paper.append(editor);
     this.main.append(paper);
   }
@@ -97,7 +62,6 @@ class Editor {
     removeQuestionHolder();
     this.toolbar()
       .then(() => this.editor())
-      // .then(() => this.horizontalMargin())
       .then(() => this.css())
       .then(() => this.scripts())
       .catch((err) => console.log(err));

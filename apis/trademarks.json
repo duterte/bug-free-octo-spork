@@ -16,22 +16,22 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
-        "font": "MS Reference Sans Serif",
         "bold": true,
-        "fontWeight": "bold",
+        "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
+        "fontWeight": "bold",
         "size": "12pt"
       },
       "contents": [
         {
           "insert": "TRADEMARK ASSIGNMENT",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
-            "font": "MS Reference Sans Serif",
             "bold": true,
-            "fontWeight": "bold",
+            "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "16pt",
+            "fontWeight": "bold",
             "size": "16pt"
           }
         },
@@ -43,11 +43,11 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
-        "font": "MS Reference Sans Serif",
         "bold": true,
-        "fontWeight": "bold",
+        "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
+        "fontWeight": "bold",
         "size": "12pt"
       },
       "contents": [
@@ -59,11 +59,11 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
-        "font": "MS Reference Sans Serif",
         "bold": true,
-        "fontWeight": "bold",
+        "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
+        "fontWeight": "bold",
         "size": "12pt"
       },
       "contents": [
@@ -75,8 +75,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -84,8 +84,8 @@
         {
           "insert": "This Trademark Assignment Agreement (“Assignment”), made effective as of",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -93,8 +93,8 @@
         {
           "insert": " ",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -102,8 +102,8 @@
         {
           "insert": "the date set forth at the end of this document, is agreed to by the",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -111,8 +111,8 @@
         {
           "insert": " ",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -120,8 +120,8 @@
         {
           "insert": "following parties:",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -134,8 +134,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -148,54 +148,44 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
       "contents": [
         {
-          "insert": "{{ insert_assignor }}",
+          "insert": "{{ ",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
         },
         {
-          "insert": "\n"
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "properties": {
-        "fontFamily": "MS Reference Sans Serif",
-        "font": "MS Reference Sans Serif",
-        "fontSize": "12pt",
-        "size": "12pt"
-      },
-      "contents": [
-        {
-          "insert": "\n"
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "properties": {
-        "fontFamily": "MS Reference Sans Serif",
-        "font": "MS Reference Sans Serif",
-        "fontSize": "12pt",
-        "size": "12pt"
-      },
-      "contents": [
-        {
-          "insert": "{{ insert_assignee }}",
+          "insert": "insert",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
+            "fontSize": "12pt",
+            "size": "12pt"
+          }
+        },
+        {
+          "insert": "_assignor",
+          "attributes": {
+            "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
+            "fontSize": "12pt",
+            "size": "12pt"
+          }
+        },
+        {
+          "insert": " }}",
+          "attributes": {
+            "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -208,8 +198,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -222,22 +212,86 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
+        "fontSize": "12pt",
+        "size": "12pt"
+      },
+      "contents": [
+        {
+          "insert": "{{ ",
+          "attributes": {
+            "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
+            "fontSize": "12pt",
+            "size": "12pt"
+          }
+        },
+        {
+          "insert": "insert",
+          "attributes": {
+            "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
+            "fontSize": "12pt",
+            "size": "12pt"
+          }
+        },
+        {
+          "insert": "_assignee",
+          "attributes": {
+            "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
+            "fontSize": "12pt",
+            "size": "12pt"
+          }
+        },
+        {
+          "insert": " }}",
+          "attributes": {
+            "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
+            "fontSize": "12pt",
+            "size": "12pt"
+          }
+        },
+        {
+          "insert": "\n"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "properties": {
+        "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
+        "fontSize": "12pt",
+        "size": "12pt"
+      },
+      "contents": [
+        {
+          "insert": "\n"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "properties": {
         "bold": true,
-        "fontWeight": "bold",
+        "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
+        "fontWeight": "bold",
         "size": "12pt"
       },
       "contents": [
         {
           "insert": "RECITALS",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
-            "font": "MS Reference Sans Serif",
             "bold": true,
+            "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
+            "fontSize": "12pt",
             "fontWeight": "bold",
-            "fontSize": "12pt",
             "size": "12pt"
           }
         },
@@ -249,8 +303,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -263,53 +317,17 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
       "contents": [
         {
-          "insert": "WHEREAS, Assignor is owner of a trademark (the “Mark”) registered with the",
+          "insert": "WHEREAS, Assignor is the owner of the following trademarks (the “Marks”) registered with the United States Patent and Trademark Office (“UPSTO”) with the details as follows:",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
-            "fontSize": "12pt",
-            "size": "12pt"
-          }
-        },
-        {
-          "insert": " ",
-          "attributes": {
             "fontFamily": "MS Reference Sans Serif",
-            "font": "MS Reference Sans Serif",
-            "fontSize": "12pt",
-            "size": "12pt"
-          }
-        },
-        {
-          "insert": "United States Patent and Trademark Office (“USPTO”) with details as",
-          "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
-            "font": "MS Reference Sans Serif",
-            "fontSize": "12pt",
-            "size": "12pt"
-          }
-        },
-        {
-          "insert": " ",
-          "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
-            "font": "MS Reference Sans Serif",
-            "fontSize": "12pt",
-            "size": "12pt"
-          }
-        },
-        {
-          "insert": "follows:",
-          "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
-            "font": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -322,8 +340,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -336,49 +354,44 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
       "contents": [
         {
-          "insert": "\n"
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "properties": {
-        "fontFamily": "MS Reference Sans Serif",
-        "font": "MS Reference Sans Serif",
-        "fontSize": "12pt",
-        "size": "12pt"
-      },
-      "contents": [
-        {
-          "insert": "Serial Number: {{ insert_number }}",
+          "insert": "{{ ",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
         },
         {
-          "insert": "\t",
+          "insert": "insert",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
         },
         {
-          "insert": "Application Date: {{ insert_date }}",
+          "insert": "_table",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
+            "fontSize": "12pt",
+            "size": "12pt"
+          }
+        },
+        {
+          "insert": " }}",
+          "attributes": {
+            "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -391,8 +404,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -405,8 +418,349 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
+        "fontSize": "12pt",
+        "size": "12pt"
+      },
+      "contents": [
+        {
+          "insert": "\n"
+        }
+      ]
+    },
+    {
+      "type": "table",
+      "rows": [
+        {
+          "properties": {
+            "height": "23.35pt"
+          },
+          "row": [
+            {
+              "properties": {
+                "width": "116.85pt",
+                "backgroundColor": "#4472C4",
+                "verticalAlignment": "center"
+              },
+              "data": {
+                "properties": {
+                  "textAlign": "center",
+                  "bold": true,
+                  "color": "#FFFFFF",
+                  "font": "MS Reference Sans Serif",
+                  "fontFamily": "MS Reference Sans Serif",
+                  "fontSize": "12pt",
+                  "fontWeight": "bold",
+                  "size": "12pt"
+                },
+                "content": [
+                  {
+                    "insert": "Heading 1",
+                    "attributes": {
+                      "bold": true,
+                      "color": "#FFFFFF",
+                      "font": "MS Reference Sans Serif",
+                      "fontFamily": "MS Reference Sans Serif",
+                      "fontSize": "12pt",
+                      "fontWeight": "bold",
+                      "size": "12pt"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "properties": {
+                "width": "116.85pt",
+                "backgroundColor": "#4472C4",
+                "verticalAlignment": "center"
+              },
+              "data": {
+                "properties": {
+                  "textAlign": "center",
+                  "bold": true,
+                  "color": "#FFFFFF",
+                  "font": "MS Reference Sans Serif",
+                  "fontFamily": "MS Reference Sans Serif",
+                  "fontSize": "12pt",
+                  "fontWeight": "bold",
+                  "size": "12pt"
+                },
+                "content": [
+                  {
+                    "insert": "Heading 2",
+                    "attributes": {
+                      "bold": true,
+                      "color": "#FFFFFF",
+                      "font": "MS Reference Sans Serif",
+                      "fontFamily": "MS Reference Sans Serif",
+                      "fontSize": "12pt",
+                      "fontWeight": "bold",
+                      "size": "12pt"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "properties": {
+                "width": "116.9pt",
+                "backgroundColor": "#4472C4",
+                "verticalAlignment": "center"
+              },
+              "data": {
+                "properties": {
+                  "textAlign": "center",
+                  "bold": true,
+                  "color": "#FFFFFF",
+                  "font": "MS Reference Sans Serif",
+                  "fontFamily": "MS Reference Sans Serif",
+                  "fontSize": "12pt",
+                  "fontWeight": "bold",
+                  "size": "12pt"
+                },
+                "content": [
+                  {
+                    "insert": "Heading 3",
+                    "attributes": {
+                      "bold": true,
+                      "color": "#FFFFFF",
+                      "font": "MS Reference Sans Serif",
+                      "fontFamily": "MS Reference Sans Serif",
+                      "fontSize": "12pt",
+                      "fontWeight": "bold",
+                      "size": "12pt"
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "properties": {
+                "width": "116.9pt",
+                "backgroundColor": "#4472C4",
+                "verticalAlignment": "center"
+              },
+              "data": {
+                "properties": {
+                  "textAlign": "center",
+                  "bold": true,
+                  "color": "#FFFFFF",
+                  "font": "MS Reference Sans Serif",
+                  "fontFamily": "MS Reference Sans Serif",
+                  "fontSize": "12pt",
+                  "fontWeight": "bold",
+                  "size": "12pt"
+                },
+                "content": [
+                  {
+                    "insert": "Heading 4",
+                    "attributes": {
+                      "bold": true,
+                      "color": "#FFFFFF",
+                      "font": "MS Reference Sans Serif",
+                      "fontFamily": "MS Reference Sans Serif",
+                      "fontSize": "12pt",
+                      "fontWeight": "bold",
+                      "size": "12pt"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "properties": {},
+          "row": [
+            {
+              "properties": {
+                "width": "116.85pt"
+              },
+              "data": {
+                "properties": {
+                  "font": "MS Reference Sans Serif",
+                  "fontFamily": "MS Reference Sans Serif",
+                  "fontSize": "12pt",
+                  "size": "12pt"
+                },
+                "content": []
+              }
+            },
+            {
+              "properties": {
+                "width": "116.85pt"
+              },
+              "data": {
+                "properties": {
+                  "font": "MS Reference Sans Serif",
+                  "fontFamily": "MS Reference Sans Serif",
+                  "fontSize": "12pt",
+                  "size": "12pt"
+                },
+                "content": []
+              }
+            },
+            {
+              "properties": {
+                "width": "116.9pt"
+              },
+              "data": {
+                "properties": {
+                  "font": "MS Reference Sans Serif",
+                  "fontFamily": "MS Reference Sans Serif",
+                  "fontSize": "12pt",
+                  "size": "12pt"
+                },
+                "content": []
+              }
+            },
+            {
+              "properties": {
+                "width": "116.9pt"
+              },
+              "data": {
+                "properties": {
+                  "font": "MS Reference Sans Serif",
+                  "fontFamily": "MS Reference Sans Serif",
+                  "fontSize": "12pt",
+                  "size": "12pt"
+                },
+                "content": []
+              }
+            }
+          ]
+        },
+        {
+          "properties": {},
+          "row": [
+            {
+              "properties": {
+                "width": "116.85pt"
+              },
+              "data": {
+                "properties": {
+                  "font": "MS Reference Sans Serif",
+                  "fontFamily": "MS Reference Sans Serif",
+                  "fontSize": "12pt",
+                  "size": "12pt"
+                },
+                "content": []
+              }
+            },
+            {
+              "properties": {
+                "width": "116.85pt"
+              },
+              "data": {
+                "properties": {
+                  "font": "MS Reference Sans Serif",
+                  "fontFamily": "MS Reference Sans Serif",
+                  "fontSize": "12pt",
+                  "size": "12pt"
+                },
+                "content": []
+              }
+            },
+            {
+              "properties": {
+                "width": "116.9pt"
+              },
+              "data": {
+                "properties": {
+                  "font": "MS Reference Sans Serif",
+                  "fontFamily": "MS Reference Sans Serif",
+                  "fontSize": "12pt",
+                  "size": "12pt"
+                },
+                "content": []
+              }
+            },
+            {
+              "properties": {
+                "width": "116.9pt"
+              },
+              "data": {
+                "properties": {
+                  "font": "MS Reference Sans Serif",
+                  "fontFamily": "MS Reference Sans Serif",
+                  "fontSize": "12pt",
+                  "size": "12pt"
+                },
+                "content": []
+              }
+            }
+          ]
+        },
+        {
+          "properties": {},
+          "row": [
+            {
+              "properties": {
+                "width": "116.85pt"
+              },
+              "data": {
+                "properties": {
+                  "font": "MS Reference Sans Serif",
+                  "fontFamily": "MS Reference Sans Serif",
+                  "fontSize": "12pt",
+                  "size": "12pt"
+                },
+                "content": []
+              }
+            },
+            {
+              "properties": {
+                "width": "116.85pt"
+              },
+              "data": {
+                "properties": {
+                  "font": "MS Reference Sans Serif",
+                  "fontFamily": "MS Reference Sans Serif",
+                  "fontSize": "12pt",
+                  "size": "12pt"
+                },
+                "content": []
+              }
+            },
+            {
+              "properties": {
+                "width": "116.9pt"
+              },
+              "data": {
+                "properties": {
+                  "font": "MS Reference Sans Serif",
+                  "fontFamily": "MS Reference Sans Serif",
+                  "fontSize": "12pt",
+                  "size": "12pt"
+                },
+                "content": []
+              }
+            },
+            {
+              "properties": {
+                "width": "116.9pt"
+              },
+              "data": {
+                "properties": {
+                  "font": "MS Reference Sans Serif",
+                  "fontFamily": "MS Reference Sans Serif",
+                  "fontSize": "12pt",
+                  "size": "12pt"
+                },
+                "content": []
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "properties": {
+        "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -419,8 +773,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -428,19 +782,19 @@
         {
           "insert": "WHEREAS",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
-            "font": "MS Reference Sans Serif",
             "bold": true,
-            "fontWeight": "bold",
+            "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
+            "fontWeight": "bold",
             "size": "12pt"
           }
         },
         {
           "insert": ", ",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -448,8 +802,8 @@
         {
           "insert": "Assignee would like to acquire the rights, title and/or interest",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -457,8 +811,8 @@
         {
           "insert": " ",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -466,8 +820,8 @@
         {
           "insert": "in and to said Mark",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -480,8 +834,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -494,8 +848,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -508,8 +862,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -517,19 +871,19 @@
         {
           "insert": "NOW",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
-            "font": "MS Reference Sans Serif",
             "bold": true,
-            "fontWeight": "bold",
+            "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
+            "fontWeight": "bold",
             "size": "12pt"
           }
         },
         {
           "insert": ", therefore, in consideration of the promises and covenants contained",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -537,8 +891,8 @@
         {
           "insert": " ",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -546,8 +900,8 @@
         {
           "insert": "herein, as well as other good and valuable consideration (the receipt and",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -555,8 +909,8 @@
         {
           "insert": " ",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -564,8 +918,8 @@
         {
           "insert": "sufficiency of which is hereby acknowledge), Assignee and Assignor hereby",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -573,8 +927,8 @@
         {
           "insert": " ",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -582,8 +936,8 @@
         {
           "insert": "agree as follows:",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -596,8 +950,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -610,8 +964,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -624,8 +978,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -633,11 +987,11 @@
         {
           "insert": "Article 1: Assignment",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
-            "font": "MS Reference Sans Serif",
             "bold": true,
-            "fontWeight": "bold",
+            "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
+            "fontWeight": "bold",
             "size": "12pt"
           }
         },
@@ -649,8 +1003,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -663,8 +1017,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -672,8 +1026,8 @@
         {
           "insert": "Assignor hereby sells, assigns, transfers, and conveys to Assignee the",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -681,8 +1035,8 @@
         {
           "insert": " ",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -690,8 +1044,8 @@
         {
           "insert": "whole ",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -699,8 +1053,8 @@
         {
           "insert": "and complete right, title, interest in and to the Mark that has been",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -708,8 +1062,8 @@
         {
           "insert": " ",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -717,8 +1071,8 @@
         {
           "insert": "or may be granted in the territory of the United States, together with the",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -726,8 +1080,8 @@
         {
           "insert": " goodwill of ",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -735,8 +1089,8 @@
         {
           "insert": "the business symbolized by the Mark. This Assignment includes",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -744,8 +1098,8 @@
         {
           "insert": " any goodwill ",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -753,8 +1107,8 @@
         {
           "insert": "of any business relating to products or services on which the",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -762,8 +1116,8 @@
         {
           "insert": " Mark has been ",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -771,8 +1125,8 @@
         {
           "insert": "used and for which it is registered. The Assignment also",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -780,8 +1134,8 @@
         {
           "insert": " ",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -789,8 +1143,8 @@
         {
           "insert": "inc",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -798,8 +1152,8 @@
         {
           "insert": "ludes any and all ",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -807,8 +1161,8 @@
         {
           "insert": "royalties, income, or other such fees (which may",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -816,8 +1170,8 @@
         {
           "insert": " include damages or fees for ",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -825,8 +1179,8 @@
         {
           "insert": "infringement) due or payable to Assignor",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -834,8 +1188,8 @@
         {
           "insert": " ",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -843,8 +1197,8 @@
         {
           "insert": "related to the Mark.",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -857,8 +1211,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -871,8 +1225,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -880,8 +1234,8 @@
         {
           "insert": "Under the terms of this Agreement, Assignee is specifically authorized to bring any actions for infringement of the Mark, even if the infringement started or took place before the effective date of this Assignment.",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -894,8 +1248,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -908,8 +1262,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -917,8 +1271,8 @@
         {
           "insert": "Assignor agrees to completely cease use of the Mark or any trade name or brand name that is confusingly similar to the Mark, and Assignor agrees not to challenge Assignee’s right in the Mark going forward.",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -931,8 +1285,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -945,8 +1299,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -954,11 +1308,11 @@
         {
           "insert": "Article 2: Payment",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
-            "font": "MS Reference Sans Serif",
             "bold": true,
-            "fontWeight": "bold",
+            "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
+            "fontWeight": "bold",
             "size": "12pt"
           }
         },
@@ -970,8 +1324,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -984,8 +1338,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -993,8 +1347,8 @@
         {
           "insert": "…",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -1007,8 +1361,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -1021,8 +1375,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -1030,8 +1384,8 @@
         {
           "insert": "A",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -1044,8 +1398,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -1058,8 +1412,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -1067,11 +1421,11 @@
         {
           "insert": "Article 3: Cooperation",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
-            "font": "MS Reference Sans Serif",
             "bold": true,
-            "fontWeight": "bold",
+            "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
+            "fontWeight": "bold",
             "size": "12pt"
           }
         },
@@ -1083,8 +1437,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -1097,8 +1451,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -1106,17 +1460,35 @@
         {
           "insert": "Assignor agrees to cooperate with Assignee to the fullest extent possible in conveying the right, title and interest in and to the Mark, including, but not limited to, the prompt execution of all necessary documents, including oaths, declarations, specificat",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
         },
         {
-          "insert": "ions, and any other instruments required to effect the conveyance of the Mark, as well as any assistance in proceedings at the USPTO.",
+          "insert": "ions, and any other instruments required to ",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
+            "fontSize": "12pt",
+            "size": "12pt"
+          }
+        },
+        {
+          "insert": "effect",
+          "attributes": {
+            "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
+            "fontSize": "12pt",
+            "size": "12pt"
+          }
+        },
+        {
+          "insert": " the conveyance of the Mark, as well as any assistance in proceedings at the USPTO.",
+          "attributes": {
+            "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -1129,8 +1501,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -1143,8 +1515,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -1152,11 +1524,11 @@
         {
           "insert": "Article 5: Successors",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
-            "font": "MS Reference Sans Serif",
             "bold": true,
-            "fontWeight": "bold",
+            "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
+            "fontWeight": "bold",
             "size": "12pt"
           }
         },
@@ -1168,8 +1540,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -1182,8 +1554,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -1191,8 +1563,8 @@
         {
           "insert": "The rights and obligations under this Assignment will inure to the benefit and be binding upon any of the Assignee’s successors and assignees as well as Assignor’s.",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -1205,8 +1577,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -1219,8 +1591,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -1228,48 +1600,11 @@
         {
           "insert": "Article 6: Counterparts",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
-            "font": "MS Reference Sans Serif",
             "bold": true,
-            "fontWeight": "bold",
-            "fontSize": "12pt",
-            "size": "12pt"
-          }
-        },
-        {
-          "insert": "\n"
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "properties": {
-        "fontFamily": "MS Reference Sans Serif",
-        "font": "MS Reference Sans Serif",
-        "fontSize": "12pt",
-        "size": "12pt"
-      },
-      "contents": [
-        {
-          "insert": "\n"
-        }
-      ]
-    },
-    {
-      "type": "paragraph",
-      "properties": {
-        "fontFamily": "MS Reference Sans Serif",
-        "font": "MS Reference Sans Serif",
-        "fontSize": "12pt",
-        "size": "12pt"
-      },
-      "contents": [
-        {
-          "insert": "This Assignments may be executes in counterparts, all of which will constitute a single agreement between the parties. If the dates set forth in the respective documents are different, this Assignment shall be considered effective on the day both parties have affixes their respective signature to the document (the “Effective Date”).",
-          "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
+            "fontWeight": "bold",
             "size": "12pt"
           }
         },
@@ -1281,8 +1616,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -1295,8 +1630,63 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
+        "fontSize": "12pt",
+        "size": "12pt"
+      },
+      "contents": [
+        {
+          "insert": "This Assignments may be ",
+          "attributes": {
+            "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
+            "fontSize": "12pt",
+            "size": "12pt"
+          }
+        },
+        {
+          "insert": "executes",
+          "attributes": {
+            "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
+            "fontSize": "12pt",
+            "size": "12pt"
+          }
+        },
+        {
+          "insert": " in counterparts, all of which will constitute a single agreement between the parties. If the dates set forth in the respective documents are different, this Assignment shall be considered effective on the day both parties have affixes their respective signature to the document (the “Effective Date”).",
+          "attributes": {
+            "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
+            "fontSize": "12pt",
+            "size": "12pt"
+          }
+        },
+        {
+          "insert": "\n"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "properties": {
+        "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
+        "fontSize": "12pt",
+        "size": "12pt"
+      },
+      "contents": [
+        {
+          "insert": "\n"
+        }
+      ]
+    },
+    {
+      "type": "paragraph",
+      "properties": {
+        "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -1304,11 +1694,11 @@
         {
           "insert": "Article 7: Representations and Warranties",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
-            "font": "MS Reference Sans Serif",
             "bold": true,
-            "fontWeight": "bold",
+            "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
+            "fontWeight": "bold",
             "size": "12pt"
           }
         },
@@ -1320,8 +1710,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -1334,8 +1724,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -1343,26 +1733,35 @@
         {
           "insert": "Assignor ",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
         },
         {
-          "insert": "represents and warrants that Assignor holds good and marketable title to the Mark, that the Mark is in good standing, with all UPSTO fees paid for its registration until the Effective Date, and there are no letal actions and circumstances known to the Assignor attacking the validity of the Mark. ",
+          "insert": "represents and warrants that Assignor holds good and marketable title to the Mark, that the Mark is in good standing, with all UPSTO fees paid for its registration until the Effective Date, and there are no ",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
         },
         {
-          "insert": "Assignor further warrants and represents that the person signing this agreement has the legal authority to do so.",
+          "insert": "letal",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
+            "fontSize": "12pt",
+            "size": "12pt"
+          }
+        },
+        {
+          "insert": " actions and circumstances known to the Assignor attacking the validity of the Mark. Assignor further warrants and represents that the person signing this agreement has the legal authority to do so.",
+          "attributes": {
+            "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }
@@ -1375,8 +1774,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -1389,8 +1788,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -1398,11 +1797,11 @@
         {
           "insert": "Article 8: Jurisdiction and Governing Law",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
-            "font": "MS Reference Sans Serif",
             "bold": true,
-            "fontWeight": "bold",
+            "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
+            "fontWeight": "bold",
             "size": "12pt"
           }
         },
@@ -1414,8 +1813,8 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
@@ -1428,17 +1827,89 @@
     {
       "type": "paragraph",
       "properties": {
-        "fontFamily": "MS Reference Sans Serif",
         "font": "MS Reference Sans Serif",
+        "fontFamily": "MS Reference Sans Serif",
         "fontSize": "12pt",
         "size": "12pt"
       },
       "contents": [
         {
-          "insert": "This agreement shall be governed by the law of the United States and the law of the State of {{ insert_state }}, and all parties agree that the exclusive legal venue for any disputes related to or stemming from this agreement are courts in {{ insert_county }} {{ insert_state }}.",
+          "insert": "This agreement shall be governed by the law of the United States and the law of the State of ",
           "attributes": {
-            "fontFamily": "MS Reference Sans Serif",
             "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
+            "fontSize": "12pt",
+            "size": "12pt"
+          }
+        },
+        {
+          "insert": "{{ ",
+          "attributes": {
+            "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
+            "fontSize": "12pt",
+            "size": "12pt"
+          }
+        },
+        {
+          "insert": "insert",
+          "attributes": {
+            "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
+            "fontSize": "12pt",
+            "size": "12pt"
+          }
+        },
+        {
+          "insert": "_state",
+          "attributes": {
+            "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
+            "fontSize": "12pt",
+            "size": "12pt"
+          }
+        },
+        {
+          "insert": " }}, and all parties agree that the exclusive legal venue for any disputes related to or stemming from this agreement are courts in {{ ",
+          "attributes": {
+            "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
+            "fontSize": "12pt",
+            "size": "12pt"
+          }
+        },
+        {
+          "insert": "insert_county",
+          "attributes": {
+            "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
+            "fontSize": "12pt",
+            "size": "12pt"
+          }
+        },
+        {
+          "insert": " }} {{ ",
+          "attributes": {
+            "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
+            "fontSize": "12pt",
+            "size": "12pt"
+          }
+        },
+        {
+          "insert": "insert_state",
+          "attributes": {
+            "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
+            "fontSize": "12pt",
+            "size": "12pt"
+          }
+        },
+        {
+          "insert": " }}.",
+          "attributes": {
+            "font": "MS Reference Sans Serif",
+            "fontFamily": "MS Reference Sans Serif",
             "fontSize": "12pt",
             "size": "12pt"
           }

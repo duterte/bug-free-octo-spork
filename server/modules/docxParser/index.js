@@ -1,13 +1,14 @@
 const path = require('path');
 const fs = require('fs-extra');
-// const watch = require('node-watch');
+const watch = require('node-watch');
 const chalk = require('chalk');
 const docxParser = require('./docxParser');
 
 const dest = 'apis';
 const entry = 'docx';
 
-fs.watch(path.resolve(entry), { persistent: true }, (event, fileName) => {
+watch(path.resolve(entry), { persistent: true }, (event, fileName) => {
+  fileName = fileName.split(/\\|\//).reduceRight((i) => i);
   if (/.docx$/i.test(fileName) && !/^\~/i.test(fileName)) {
     (async function () {
       try {
@@ -17,7 +18,6 @@ fs.watch(path.resolve(entry), { persistent: true }, (event, fileName) => {
         if (!pathExists) return;
         const API = await docxParser(filePath);
         const name = fileName.match(/(.*)\.(.*)$/i)[1] + '.json';
-        console.log({ dest, name, fileName });
         const destPath = path.resolve(dest, name);
         const json = fs.createWriteStream(destPath, { mode: 0o777 });
         json.write(JSON.stringify(API, null, 2));
