@@ -1,11 +1,11 @@
-In order to run this app
+### In order to run this app
 
 - requires NodeJS version 12+
 - clone this git reporsitory or download source as zip file
 - install npm packages using `npm install`
 - Then start the app by using `node .` you may use `sudo node .` on a mac or linux machine
 
-Folder structure:
+### Folder structure:
 
 - public - contains static assets used in front-end such as css and javascript files.
 
