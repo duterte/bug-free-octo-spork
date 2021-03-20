@@ -73,7 +73,6 @@ function documents(array = []) {
 router.post('/', (req, res) => {
   try {
     const document = req.body.document;
-    console.log(document);
     if (!document) {
       const error = new Error('document is empty');
       error.code = 400;

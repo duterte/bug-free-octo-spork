@@ -106,7 +106,6 @@ const quill = new Quill('#editor', {
 
 quill.on('text-change', function (a, b, source) {
   if (source === 'user') {
-    console.log(source);
     sessionStorage.setItem('contents', JSON.stringify(quill.getContents().ops));
   }
 });
