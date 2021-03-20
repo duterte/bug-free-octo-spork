@@ -142,7 +142,9 @@ label {
 
 .text-editor {
   .paper {
-    margin: 0 auto;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    margin: 50px auto;
     border: 1px solid white;
     background-color: white;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
@@ -169,13 +171,48 @@ label {
 }
 
 #toolbar {
-  height: 40px;
+  height: 74px;
   background-color: white;
+  display: flex;
+}
+
+#toolbar > div {
+  border-left: 1px solid #44444470;
+  border-right: 1px solid #44444470;
+  margin: 0.5em 0;
+  padding: 0 0.5em;
+  max-width: 240px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+
+#toolbar-font > * {
+  margin-right: 0.4em;
+}
+
+#toolbar-font > span {
+  cursor: pointer;
+  padding: 0.2em 0.5em;
+  border-radius: 2px;
+}
+
+#toolbar-font > span:hover {
+  background-color: #94eff1;
+}
+
+.font-select {
+  max-width: 165px;
 }
 
 main.text-editor {
+  display: grid;
   background: linear-gradient(90deg, #8ec5fc, #e0c3fc);
   position: relative;
+  // height: calc(100vh - 74px);
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
 .ql-table,
@@ -199,4 +236,19 @@ table,
 thead,
 tbody {
   width: 100%;
+}
+
+#sidebar {
+  //
+  // position: abso;
+  grid-column: 2/3;
+  grid-row: 1/2;
+  background-color: white;
+  border: 1px solid black;
+}
+
+.editor-holder {
+  height: calc(100vh - 74px);
+  overflow-y: auto;
+  overflow-x: auto;
 }

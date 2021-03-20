@@ -84,7 +84,6 @@ class Table extends Parchment.Embed {
             attributes[entry[0]] = entry[1].trim();
           }
         }
-        // console.log(attributes);
         cells.push({ attributes, text });
       }
       table.push({ properties, cells });
@@ -105,69 +104,98 @@ const quill = new Quill('#editor', {
   },
 });
 
+quill.on('text-change', function (a, b, source) {
+  if (source === 'user') {
+    console.log(source);
+    sessionStorage.setItem('contents', JSON.stringify(quill.getContents().ops));
+  }
+});
+
 function setContents(delta) {
   const contents = quill.setContents(delta);
-  // console.log(contents.ops);
   sessionStorage.setItem('contents', JSON.stringify(contents.ops));
 }
 
-function throwError(message, typeError = undefined) {
-  const error = new Error(message);
-  error.name = typeError || undefined;
-  throw error;
-}
-
-const regex = {
-  pattern: /{{\s?[a-zA-Z0-9_]*\s?}}/gim,
-  variable: /{{\s?([a-zA-Z0-9_]*)\s?}}/i,
-};
-
-function findTemplateVariable(sessionStorageKey) {
-  const delta = JSON.parse(sessionStorage.getItem(sessionStorageKey));
-  const tempVariable = [];
-
-  if (typeof sessionStorageKey !== 'string') {
-    throwError('argument must be a type of string', 'RangeError');
+class DeltaProcessor {
+  constructor(sessionStorageKey) {
+    this.key = sessionStorageKey;
+    this.delta = JSON.parse(sessionStorage.getItem(this.key));
+    this.require = DeltaProcessor.requisite(this.delta, this.key);
+    this.targets = [];
   }
-  if (!delta) {
-    const msg = `failed to get sessionStorage Item with "${sessionStorageKey}" key`;
-    throwError(msg);
+
+  static requisite(key, delta) {
+    if (!delta) {
+      throw new Error(
+        `failed to get sessinStorage item with sessionStorageKey of ${key}`
+      );
+    }
   }
-  for (let i = 0; i < delta.length; i++) {
-    const insert = delta[i].insert;
-    const templateVariable = regex.pattern.test(insert);
-    if (templateVariable) {
-      const multiLineMatch = insert.match(regex.pattern);
-      for (const result of multiLineMatch) {
-        const singleMatch = result.match(regex.variable);
-        const variable = singleMatch[1];
-        let isExist = tempVariable.find((item) => item.pattern === result);
-        if (!isExist) {
-          tempVariable.push({ index: i, pattern: result, variable, count: 1 });
-        } else {
-          isExist = { ...isExist, count: isExist.count++ };
+
+  set _targets(array = []) {
+    if (!array) {
+      throw new Error('targets must be type array');
+    } else if (!array.length) {
+      throw new Error(`target not found`);
+    }
+    this.targets = array;
+  }
+
+  // Methods that's prepended with # "hashtag"
+  // is uncoventional way of defining private methods
+  // And thus the can't be used outide the scope of its class definition
+
+  #find(regex) {
+    const array = [];
+    const delta = this.delta;
+    for (let i = 0; i < delta.length; i++) {
+      const insert = delta[i].insert || '';
+      const match = insert.match(regex);
+      if (match && match.length) {
+        for (const item of match) {
+          let exist = array.find((item) => item.index === i);
+          if (!exist) {
+            array.push({ index: i, pattern: item, count: 1 });
+          } else {
+            exist = { ...exist, count: exist.count++ };
+          }
         }
       }
     }
+    this._targets = array;
+    return array;
   }
-  return tempVariable.sort((a, b) => a.index - b.index);
-}
 
-function replaceTemplateVariable(object) {
-  const { variable, replaceValue, sessionStorageKey } = object;
-  const tempVar = findTemplateVariable('contents');
-  const targetVariable = tempVar.filter((item) => item.variable === variable);
-  let delta = JSON.parse(sessionStorage.getItem(sessionStorageKey));
-
-  for (const item of targetVariable) {
-    const variableRegEx = new RegExp(`{{\\s?${item.variable}\\s?}}`, 'gim');
-    delta[item.index].insert = delta[item.index].insert.replace(
-      variableRegEx,
-      replaceValue
-    );
+  variable(string = '') {
+    const regex = new RegExp(`{{\\s\?${string}\\s\?}}`, 'gm');
+    if (this.delta && this.delta.length) {
+      this.#find(regex);
+    }
+    return this;
   }
-  const contents = quill.setContents(delta);
-  sessionStorage.setItem('contents', JSON.stringify(contents.ops));
+  string(string = '') {
+    const regex = new RegExp(string, 'gm');
+    if (this.delta && this.delta.length) {
+      this.#find(regex);
+    }
+    return this;
+  }
+
+  replace() {
+    // There is supposed to be a method that replace one value at a time.
+    // But this is not implemented yet
+    // depends within requirements of this project
+    // This (maybe or maybe not) implemented in the future.
+  }
+
+  replaceAll(value) {
+    for (const item of this.targets) {
+      const regex = new RegExp(item.pattern, 'gm');
+      let target = this.delta[item.index].insert;
+      this.delta[item.index].insert = target.replace(regex, value);
+    }
+    setContent();
+  }
 }
 
 function createTable() {
@@ -191,12 +219,11 @@ function createTable() {
       const values = Object.values(answer[i]);
       const cells = [];
       for (const value of values) {
-        cells.push({ text: value, attributes: {} });
+        cells.push({ text: value, attributes: { width: '155.8pt' } });
       }
       rows.push({ properties: {}, cells });
     }
   }
-  // console.log(rows);
   return rows;
 }
 
@@ -205,6 +232,3 @@ sizeStyle.whitelist = attributors.sizes;
 fontFamily.whitelist = attributors.fonts;
 const delta = json;
 setContents(delta);
-createTable();
-
-// console.log(delta[36]);

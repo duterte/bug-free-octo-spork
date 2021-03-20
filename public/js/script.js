@@ -5,6 +5,95 @@ function removeQuestionHolder() {
   }
 }
 
+class Select {
+  render() {
+    const element = document.createElement('select');
+    element.id = this.id;
+    element.className = 'font-select';
+    for (const font of this.list) {
+      const option = document.createElement('option');
+      option.value = font;
+      option.innerText = font;
+      option.style.fontFamily = font;
+      element.append(option);
+    }
+    return element;
+  }
+}
+
+class FontFamily extends Select {
+  constructor(fontFamily) {
+    super();
+    fontFamily = ['MS Reference Sans Serif', 'Arial Black'];
+    this.list = fontFamily;
+    this.id = 'fontFamily';
+  }
+}
+
+class FontWeight extends Select {
+  constructor(fontWeight) {
+    super();
+    fontWeight = [8, 9, 11, 12, 14, 16, 18, 20];
+    this.list = fontWeight;
+    this.id = 'fontWeight';
+  }
+}
+
+class FontBold {
+  render() {
+    const element = document.createElement('span');
+    element.innerText = 'B';
+    element.style.fontWeight = 'bold';
+    return element;
+  }
+}
+
+class FontItalic {
+  render() {
+    const element = document.createElement('span');
+    element.innerText = 'I';
+    element.style.fontStyle = 'Italic';
+    element.style.fontFamily = 'serif';
+    element.style.fontWeight = 'bold';
+    return element;
+  }
+}
+
+class FontUnderline {
+  render() {
+    const element = document.createElement('span');
+    element.innerText = 'U';
+    element.style.textDecoration = 'underline';
+    element.style.fontWeight = 'bold';
+    return element;
+  }
+}
+
+class ToolBar {
+  fontSection() {
+    const element = document.createElement('div');
+    element.id = 'toolbar-font';
+    const fontFamily = new FontFamily();
+    const fontWeight = new FontWeight();
+    const fontBold = new FontBold();
+    const fontItalic = new FontItalic();
+    const fontUnderline = new FontUnderline();
+    element.append(fontFamily.render());
+    element.append(fontWeight.render());
+    element.append(fontBold.render());
+    element.append(fontItalic.render());
+    element.append(fontUnderline.render());
+    return element;
+  }
+
+  render() {
+    const element = document.createElement('div');
+    element.id = 'toolbar-font';
+    element.append(this.fontSection());
+    return element;
+  }
+}
+
 class Editor {
   constructor() {
     this.body = document.querySelector('body');
@@ -32,9 +121,8 @@ class Editor {
   }
 
   toolbar() {
-    const toolbar = document.createElement('div');
+    const toolbar = new ToolBar().render();
     toolbar.id = 'toolbar';
-    toolbar.innerText = 'Editor Toolbar Section';
     return new Promise((resolve, reject) => {
       this.body.insertAdjacentElement('afterbegin', toolbar);
       resolve();
@@ -46,6 +134,7 @@ class Editor {
     const editor = document.createElement('div');
     const { attributes } = JSON.parse(sessionStorage.getItem('api'));
     this.main.className = 'text-editor';
+
     paper.className = 'paper';
     paper.id = 'paper';
     paper.style.width = attributes.pageWidth;
@@ -55,11 +144,13 @@ class Editor {
     editor.style.marginRight = attributes.marginRight;
     editor.style.marginBottom = attributes.marginBottom;
     editor.style.marginLeft = attributes.marginLeft;
+    const holder = document.createElement('div');
+    holder.classList = 'editor-holder';
     paper.append(editor);
-    this.main.append(paper);
+    holder.append(paper);
+    this.main.append(holder);
   }
   render() {
-    removeQuestionHolder();
     this.toolbar()
       .then(() => this.editor())
       .then(() => this.css())
@@ -68,12 +159,27 @@ class Editor {
   }
 }
 
-function networkRequest() {
+class SideBar {
+  constructor() {
+    this.main = document.querySelector('main');
+  }
+  border() {
+    const element = document.createElement('div');
+    element.id = 'sidebar';
+    element.innerText = 'Right Pane Placeholder';
+    return element;
+  }
+
+  render() {
+    this.main.append(this.border());
+  }
+}
+
+function networkRequest(docx = 'trademark') {
   const networkIndicator = document.getElementById('network-indicator');
   const bar = document.getElementById('progress-indicator');
   networkIndicator.style.display = 'block';
   bar.style.width = `1%`;
-  // We use XHR since it is good on tracking networks progress unlike Fetch API
   const xhr = new XMLHttpRequest();
   xhr.open('POST', '/api');
   xhr.addEventListener('progress', (e) => {
@@ -92,8 +198,10 @@ function networkRequest() {
       const json = res.responseText;
       sessionStorage.setItem('api', json);
       removeQuestionHolder();
+      const sidebar = new SideBar();
       const editor = new Editor();
       editor.render();
+      sidebar.render();
       scrollTo({ top: 0 });
     } else if (res.status === 500) {
       location.href = '/500';
@@ -101,5 +209,5 @@ function networkRequest() {
   });
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.setRequestHeader('Accept', 'application/json');
-  xhr.send(sessionStorage.getItem('answers'));
+  xhr.send(JSON.stringify({ document: docx }));
 }
